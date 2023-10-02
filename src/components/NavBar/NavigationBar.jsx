@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./NavigationBar.module.css";
 import { slide as Menu } from "react-burger-menu";
-import { BsList, BsPersonFill } from "react-icons/bs";
+import { BsList, BsPersonFill, BsFillCartFill } from "react-icons/bs";
 import SearchInput from "./SearchInput";
 
 const NavigationBar = () => {
@@ -25,6 +25,8 @@ const NavigationBar = () => {
       <SearchInput />
 
       <BsPersonFill className={styles.account} />
+
+      <BsFillCartFill className={styles.cart}/>
     </nav>
   );
 };

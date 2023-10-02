@@ -1,0 +1,31 @@
+.parentContainer {
+  margin: auto;
+  width: 88%;
+  height: 150px;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1%;
+  padding: 1.5rem;
+}
+.arrowBtn {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2%;
+  padding: 0.5rem;
+  overflow-x: scroll;
+  /* overflow-x: hidden; */
+}
+.imageLogo {
+  width: 120px;
+  height: 140px;
+  cursor: pointer;
+}

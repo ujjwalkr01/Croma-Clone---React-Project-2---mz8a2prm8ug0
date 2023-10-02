@@ -1,9 +1,10 @@
-import { useState } from "react";
-import SimpleImageSlider from "react-simple-image-slider";
+import { useEffect, useState } from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./SliderBar.css";
 
 const SliderBar = () => {
-  const [imageNum, setImageNum] = useState(0);
+  // const [imageNum, setImageNum] = useState(0);
 
   const sliderImage = [
     {
@@ -28,20 +29,34 @@ const SliderBar = () => {
       url: "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1696086046/Croma%20Assets/CMS/LP%20Page%20Banners/2023/HP%20Top%20Rotating%20Deals/October/Oct%202nd/Desktop/HP_Mouse_2Oct2023_laaqm6.jpg?tr=w-2048",
     },
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % sliderImage.length;
+      setCurrentIndex(nextIndex);
+    }, 6000); // Change image every 3 seconds (adjust as needed)
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [currentIndex, sliderImage]);
+
   return (
-    <div className="sliderBox">
-      <SimpleImageSlider
-        width="100%"
-        height="52%"
-        images={sliderImage}
-        showBullets={true}
-        // showNavs={true}
-        autoPlay={true}
-        onStartSlide={(index, length) => {
-          setImageNum(index);
-        }}
-        autoPlayDelay={6}
-      />
+    <div className="slider-container">
+      <Carousel
+        showArrows={false}
+        showStatus={false}
+        showThumbs={false}
+        selectedItem={currentIndex}
+      >
+        {sliderImage.map((image, index) => (
+          <div key={index}>
+            <img src={image.url} alt={`Slide ${index}`} />
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
