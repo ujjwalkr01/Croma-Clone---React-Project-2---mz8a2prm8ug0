@@ -2,7 +2,7 @@
   margin: auto;
   width: 88%;
   height: 150px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,20 +12,46 @@
 .arrowBtn {
   text-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 5rem;
   cursor: pointer;
+  font-weight: bold;
 }
 .imgContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2%;
+  gap: 1%;
   padding: 0.5rem;
   overflow-x: scroll;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 .imageLogo {
-  width: 120px;
-  height: 140px;
+  width: 250px;
+  height: 180px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 481px) {
+  .parentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1%;
+    padding: 1rem;
+  }
+  .arrowBtn {
+    display: none;
+  }
+  .imgContainer {
+    display: flex;
+    gap: 1%;
+    padding: 0.2rem;
+    overflow-x: scroll;
+  }
+  .imageLogo {
+    width: 105px;
+    height: 105px;
+    cursor: pointer;
+  }
 }

@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./WhatsNew.module.css";
-import { TfiAngleLeft, TfiAngleRight } from "react-icons/tfi";
+import SliderInfo from "./SliderInfo";
 
 const WhatsNew = () => {
   const images = [
@@ -61,37 +59,13 @@ const WhatsNew = () => {
       url: "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1683281227/Croma%20Assets/CMS/LP%20Page%20Banners/2023/HP%20Category%20Navigation/gaming_categoryicons_hfqpze.png?tr=w-1000",
     },
   ];
-  const [currentIndex, setCurrentIndex] = useState(7);
-
-  const prevSlide = () => {
-    const newIndex = currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const newIndex = currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
 
   return (
-    <div className={styles.parentContainer}>
-      <div>
-        <TfiAngleLeft className={styles.arrowBtn} onClick={prevSlide} />{" "}
-      </div>
-      <div className={styles.imgContainer}>
-        {images.map((image, indx) => {
-          return (
-            <div key={indx}>
-              <img src={image.url} className={styles.imageLogo} />
-            </div>
-          );
-        })}
-      </div>
-      <div>
-        {" "}
-        <TfiAngleRight className={styles.arrowBtn} onClick={nextSlide} />
-      </div>
-    </div>
+    <SliderInfo width={160}>
+      {images.map((image, indx) => {
+        return <img key={indx} src={image.url} className={styles.imageLogo} />;
+      })}
+    </SliderInfo>
   );
 };
 
