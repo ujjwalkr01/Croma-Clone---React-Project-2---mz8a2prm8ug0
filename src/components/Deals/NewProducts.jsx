@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./NewProducts.module.css";
 import { getHeaderWithProjectId } from "../../utils/config";
 import axios from "axios";
+import ProductInfo from "../Page/ProductInfo";
+import { useNavigate } from "react-router-dom";
+import { ClickedContext, ProductIdDataCtx } from "../App";
 
 const NewProducts = () => {
   const [data, setData] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+  const { isClicked, setIsClicked } = useContext(ClickedContext);
+  const {productId, setProductId}=useContext(ProductIdDataCtx)
   const [productDetails, setProductDetails] = useState({});
+  const navigate = useNavigate();
 
   const fetchingNewProducts = async () => {
     const config = getHeaderWithProjectId();
@@ -29,6 +34,9 @@ const NewProducts = () => {
   }, []);
 
   const handleSelectProduct = (product) => {
+    setIsClicked(true);
+    setProductId(product._id);
+    navigate("/productDetails");
     console.log(product);
   };
 
@@ -80,8 +88,10 @@ const NewProducts = () => {
           );
         })}
       </div>
+
+      {/* {isClicked && <ProductInfo productID={productDetails._id} />} */}
     </>
   );
 };
 
-export default React.memo(NewProducts);
+export default NewProducts;

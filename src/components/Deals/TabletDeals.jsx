@@ -81,9 +81,9 @@ const TabletDeals = () => {
           );
         })}
       </SliderInfo>
-      {isClicked && <ProductInfo product={productDetails} />}
+      {isClicked && <ProductInfo productID={productDetails._id} />}
     </>
   );
 };
 
-export default React.memo(TabletDeals);
+export default TabletDeals;

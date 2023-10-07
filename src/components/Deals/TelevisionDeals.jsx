@@ -82,8 +82,8 @@ const TelevisionDeals = () => {
           );
         })}
       </SliderInfo>
-      {isClicked && <ProductInfo product={productDetails} />}
+      {isClicked && <ProductInfo productID={productDetails._id} />}
     </>
   );
 };
-export default React.memo(TelevisionDeals);
+export default TelevisionDeals;

@@ -83,8 +83,8 @@ const RefrigeratorDeals = () => {
           );
         })}
       </SliderInfo>
-      {isClicked && <ProductInfo product={productDetails} />}
+      {isClicked && <ProductInfo productID={productDetails._id} />}
     </>
   );
 };
-export default React.memo(RefrigeratorDeals);
+export default RefrigeratorDeals;

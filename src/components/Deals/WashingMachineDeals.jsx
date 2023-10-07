@@ -81,9 +81,9 @@ const WashingMachineDeals = () => {
           );
         })}
       </SliderInfo>
-      {isClicked && <ProductInfo product={productDetails} />}
+      {isClicked && <ProductInfo productID={productDetails._id} />}
     </>
   );
 };
 
-export default React.memo(WashingMachineDeals);
+export default WashingMachineDeals;

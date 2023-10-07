@@ -1,0 +1,55 @@
+.parentContainer {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4%;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.sect1 {
+  height: 380px;
+  width: 280px;
+  border-radius: 6px;
+  background-image: url("https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1696594396/Croma%20Assets/CMS/LP%20Page%20Banners/2023/More%20For%20Your%20Money/October/Festive-%207%20to%2025/ICICI%20-%207%20to%209/PNGs/HP_382x506_ICICI-PAYTM_SAT-SUN_7-9_5Oct2023_jme9vy.png?tr=w-480");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sect2 {
+  height: 380px;
+  width: 280px;
+  border-radius: 6px;
+  background-image: url("https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1683729468/Croma%20Assets/CMS/Homepage%20Banners/Updated%20Banners%20-%2010th%20May/HP_4Split_EasyEMI_8May2023_o7cpca.jpg?tr=w-480");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sect3 {
+  height: 380px;
+  width: 280px;
+  border-radius: 6px;
+  background-image: url("https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1683729468/Croma%20Assets/CMS/Homepage%20Banners/Updated%20Banners%20-%2010th%20May/HP_4Split_NEUCoin_8May2023_kunbf4.jpg?tr=w-360");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sect1:hover,
+.sect2:hover,
+.sect3:hover {
+  transform: scale(1.02);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 481px) {
+  .sect1,
+  .sect2,
+  .sect3 {
+    height: 280px;
+    width: 180px;
+    margin-bottom: 1rem;
+  }
+}
