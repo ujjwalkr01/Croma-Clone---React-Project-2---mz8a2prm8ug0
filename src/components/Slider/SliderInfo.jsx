@@ -4,7 +4,8 @@ import { useRef } from "react";
 
 const SliderInfo = ({ children, width }) => {
   const contentBoxRef = useRef();
-//   console.log(props.children, props.width);
+  //   console.log(props.children, props.width);
+
   const slideRight = () => {
     contentBoxRef.current.scrollLeft += width;
   };
@@ -17,7 +18,7 @@ const SliderInfo = ({ children, width }) => {
     <div className={styles.parentContainer}>
       <TfiAngleLeft className={styles.arrowBtn} onClick={slideLeft} />
 
-      <div className={styles.imgContainer} ref={contentBoxRef}>
+      <div className={styles.container} ref={contentBoxRef}>
         {children}
       </div>
 

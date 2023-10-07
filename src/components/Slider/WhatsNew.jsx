@@ -61,7 +61,7 @@ const WhatsNew = () => {
   ];
 
   return (
-    <SliderInfo width={160}>
+    <SliderInfo width={320}>
       {images.map((image, indx) => {
         return <img key={indx} src={image.url} className={styles.imageLogo} />;
       })}

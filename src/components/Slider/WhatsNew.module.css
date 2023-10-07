@@ -1,51 +1,48 @@
 .parentContainer {
   margin: auto;
   width: 88%;
-  height: 150px;
   /* border: 1px solid red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1%;
   padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 .arrowBtn {
   text-align: center;
   color: white;
-  font-size: 5rem;
+  font-size: 7rem;
   cursor: pointer;
   font-weight: bold;
 }
-.imgContainer {
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1%;
+  gap: 2.5%;
   padding: 0.5rem;
   overflow-x: scroll;
   overflow-x: hidden;
 }
 .imageLogo {
-  width: 250px;
-  height: 180px;
+  width: 220px;
+  height: 160px;
   cursor: pointer;
 }
 
 @media screen and (max-width: 481px) {
   .parentContainer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1%;
-    padding: 1rem;
+    margin-left: 2%;
+    width: 99%;
+    padding: 0rem 0.2rem;
   }
   .arrowBtn {
     display: none;
   }
-  .imgContainer {
+  .container {
     display: flex;
-    gap: 1%;
+    gap: 2.5%;
     padding: 0.2rem;
     overflow-x: scroll;
   }
