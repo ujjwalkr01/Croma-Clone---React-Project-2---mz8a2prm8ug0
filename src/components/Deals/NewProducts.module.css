@@ -12,12 +12,21 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 2%;
+  margin-bottom: 2.5rem;
 }
 .productCard {
   width: 250px;
   height: 21.2rem;
   padding: 0.2rem;
-  background-color: #b4b8db;
+  /* background-color: #aeb2db; */
+  background-image: radial-gradient(
+    circle,
+    #beb4c7,
+    #bcb1d0,
+    #b5b0da,
+    #abafe5,
+    #9caff0
+  );
   color: black;
   box-shadow: none !important;
   border-radius: 6px;
@@ -26,7 +35,7 @@ section {
   /* border: 1px solid white; */
 }
 .newTag {
-  background-color: rgb(252, 89, 116);
+  background-color: rgb(250, 79, 108);
   border-bottom-right-radius: 6px;
   border-top-left-radius: 6px;
   width: 65px;
@@ -75,7 +84,14 @@ section {
 }
 .border {
   height: 32px;
-  background-color: rgb(172, 170, 170);
+  background-image: radial-gradient(
+    circle,
+    #9fa0a0,
+    #9c9e9e,
+    #999b9b,
+    #969999,
+    #939797
+  );
   width: 100%;
   border: none;
 }

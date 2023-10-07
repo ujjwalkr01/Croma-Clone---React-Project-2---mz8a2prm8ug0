@@ -6,7 +6,7 @@ import styles from "./Deals.module.css";
 import { BiHeart } from "react-icons/bi";
 import ProductInfo from "../Page/ProductInfo";
 
-const TrendingDeals = () => {
+const LaptopDeals = () => {
   const [data, setData] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [productDetails, setProductDetails] = useState({});
@@ -16,7 +16,7 @@ const TrendingDeals = () => {
     const config = getHeaderWithProjectId();
     try {
       const res = await axios.get(
-        `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"sellerTag": "trending"}`,
+        `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory": "laptop"}`,
         config
       );
       //   console.log(res.data.data[0].name);
@@ -32,21 +32,20 @@ const TrendingDeals = () => {
   }, []);
 
   const handleEachCard = (product) => {
-    // console.log(product);
+    console.log(product);
     setIsClicked(true);
     setProductDetails(product);
   };
 
   return (
     <>
-      <section>Top Trending Deals</section>
+      <section>Deals On Laptops</section>
       <SliderInfo width={280}>
         {data.map((ele, indx) => {
           return (
             <div
               key={indx}
               className={styles.cardContainer}
-              //   ref={prodRef}
               onClick={() => handleEachCard(ele)}
             >
               <BiHeart className={styles.wishList} />
@@ -67,7 +66,10 @@ const TrendingDeals = () => {
                     parseFloat(
                       Math.floor(
                         Math.random() *
-                          (parseInt(ele.price) + 6000 - parseInt(ele.price) + 1000)
+                          (parseInt(ele.price) +
+                            10000 -
+                            parseInt(ele.price) +
+                            5000)
                       ) + parseInt(ele.price)
                     ).toFixed(2)
                   )}
@@ -84,4 +86,4 @@ const TrendingDeals = () => {
     </>
   );
 };
-export default React.memo(TrendingDeals);
+export default React.memo(LaptopDeals);

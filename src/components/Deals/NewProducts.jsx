@@ -28,13 +28,21 @@ const NewProducts = () => {
     fetchingNewProducts();
   }, []);
 
+  const handleSelectProduct = (product) => {
+    console.log(product);
+  };
+
   return (
     <>
       <section>New at Croma</section>
       <div className={styles.parentContainer}>
         {data.map((ele, index) => {
           return (
-            <div key={index} className={styles.productCard}>
+            <div
+              key={index}
+              className={styles.productCard}
+              onClick={() => handleSelectProduct(ele)}
+            >
               <p className={styles.newTag}>NEW</p>
 
               <p className={styles.prodName}>{ele.name}</p>
@@ -47,7 +55,10 @@ const NewProducts = () => {
                     parseFloat(
                       Math.floor(
                         Math.random() *
-                          (parseInt(ele.price) + 1500 - parseInt(ele.price) + 1)
+                          (parseInt(ele.price) +
+                            6000 -
+                            parseInt(ele.price) +
+                            1000)
                       ) + parseInt(ele.price)
                     ).toFixed(2)
                   )}
