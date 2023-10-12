@@ -1,16 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { getHeaderWithProjectId } from "../../utils/config";
 import SliderInfo from "../Slider/SliderInfo";
 import styles from "./Deals.module.css";
 import { BiHeart } from "react-icons/bi";
-import ProductInfo from "../Page/ProductInfo";
+import { ClickedContext, ProductIdDataCtx } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const TelevisionDeals = () => {
   const [data, setData] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
-  const [productDetails, setProductDetails] = useState({});
-  //   const prodRef = useRef();
+  const { isClicked, setIsClicked } = useContext(ClickedContext);
+  const { productId, setProductId } = useContext(ProductIdDataCtx);
+  const navigate = useNavigate();
 
   const fetchingTrendingData = async () => {
     const config = getHeaderWithProjectId();
@@ -32,9 +33,10 @@ const TelevisionDeals = () => {
   }, []);
 
   const handleEachCard = (product) => {
-    console.log(product);
     setIsClicked(true);
-    setProductDetails(product);
+    setProductId(product._id);
+    navigate("/productDetails");
+    console.log(product);
   };
 
   return (
@@ -82,7 +84,6 @@ const TelevisionDeals = () => {
           );
         })}
       </SliderInfo>
-      {isClicked && <ProductInfo productID={productDetails._id} />}
     </>
   );
 };

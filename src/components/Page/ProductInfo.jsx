@@ -8,7 +8,7 @@ const ProductInfo = (props) => {
 
   console.log(productId);
   const handleSelectedProduct = (product) => {
-    console.log(product.id);
+    console.log(product);
   };
 
   console.log(props);

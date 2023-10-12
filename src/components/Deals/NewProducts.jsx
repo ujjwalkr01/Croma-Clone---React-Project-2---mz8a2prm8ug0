@@ -2,15 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./NewProducts.module.css";
 import { getHeaderWithProjectId } from "../../utils/config";
 import axios from "axios";
-import ProductInfo from "../Page/ProductInfo";
 import { useNavigate } from "react-router-dom";
 import { ClickedContext, ProductIdDataCtx } from "../App";
 
 const NewProducts = () => {
   const [data, setData] = useState([]);
   const { isClicked, setIsClicked } = useContext(ClickedContext);
-  const {productId, setProductId}=useContext(ProductIdDataCtx)
-  const [productDetails, setProductDetails] = useState({});
+  const { productId, setProductId } = useContext(ProductIdDataCtx);
   const navigate = useNavigate();
 
   const fetchingNewProducts = async () => {
@@ -88,8 +86,6 @@ const NewProducts = () => {
           );
         })}
       </div>
-
-      {/* {isClicked && <ProductInfo productID={productDetails._id} />} */}
     </>
   );
 };
