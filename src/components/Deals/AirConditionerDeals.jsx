@@ -49,15 +49,12 @@ const AirConditionerDeals = () => {
             <div
               key={indx}
               className={styles.cardContainer}
-              //   ref={prodRef}
               onClick={() => handleEachCard(ele)}
             >
               <BiHeart className={styles.wishList} />
               <img className={styles.prodImage} src={ele.displayImage} />
-              <p className={styles.prodName} style={{ color: "white" }}>
-                {ele.name}
-              </p>
-              <p className={styles.prodPrice} style={{ color: "white" }}>
+              <p className={styles.prodName}>{ele.name}</p>
+              <p className={styles.prodPrice}>
                 {new Intl.NumberFormat("en-IN", {
                   style: "currency",
                   currency: "INR",
@@ -89,4 +86,4 @@ const AirConditionerDeals = () => {
     </>
   );
 };
-export default AirConditionerDeals;
+export default React.memo(AirConditionerDeals);

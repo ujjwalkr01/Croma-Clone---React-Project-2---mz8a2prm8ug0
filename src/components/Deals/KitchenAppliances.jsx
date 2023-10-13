@@ -88,4 +88,4 @@ const KitchenAppliances = () => {
     </>
   );
 };
-export default KitchenAppliances;
+export default React.memo(KitchenAppliances);

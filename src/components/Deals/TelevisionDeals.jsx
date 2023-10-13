@@ -87,4 +87,4 @@ const TelevisionDeals = () => {
     </>
   );
 };
-export default TelevisionDeals;
+export default React.memo(TelevisionDeals);

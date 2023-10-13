@@ -90,4 +90,4 @@ const NewProducts = () => {
   );
 };
 
-export default NewProducts;
+export default React.memo(NewProducts);

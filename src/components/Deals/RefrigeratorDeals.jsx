@@ -88,4 +88,4 @@ const RefrigeratorDeals = () => {
     </>
   );
 };
-export default RefrigeratorDeals;
+export default React.memo(RefrigeratorDeals);

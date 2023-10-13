@@ -36,7 +36,7 @@ const TrendingDeals = () => {
     setIsClicked(true);
     setProductId(product._id);
     navigate("/productDetails");
-    console.log(product);
+    // console.log(product);
   };
 
   return (
@@ -88,4 +88,4 @@ const TrendingDeals = () => {
     </>
   );
 };
-export default TrendingDeals;
+export default React.memo(TrendingDeals);

@@ -88,4 +88,4 @@ const AudioDeals = () => {
     </>
   );
 };
-export default AudioDeals;
+export default React.memo(AudioDeals);

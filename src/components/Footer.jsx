@@ -29,7 +29,7 @@ const Footer = () => {
           <p>Help And Support</p>
         </div>
       </div>
-      <div className={styles.sect4}>
+      {/* <div className={styles.sect4}>
         <div>
           <p>E-Waste</p>
           <p>Franchise Opportunity</p>
@@ -40,7 +40,7 @@ const Footer = () => {
           <p>Privacy Policy</p>
           <p>Gift Card</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

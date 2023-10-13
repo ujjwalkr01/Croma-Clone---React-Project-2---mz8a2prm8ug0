@@ -88,4 +88,4 @@ const TabletDeals = () => {
   );
 };
 
-export default TabletDeals;
+export default React.memo(TabletDeals);

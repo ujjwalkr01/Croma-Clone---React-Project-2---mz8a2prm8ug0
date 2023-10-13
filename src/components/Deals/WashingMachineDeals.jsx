@@ -88,4 +88,4 @@ const WashingMachineDeals = () => {
   );
 };
 
-export default WashingMachineDeals;
+export default React.memo(WashingMachineDeals);
