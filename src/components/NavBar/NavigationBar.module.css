@@ -47,6 +47,7 @@
 ::placeholder {
   color: gray;
   font-size: 17px;
+  margin-left: 1.5%;
 }
 .noSubmit:hover {
   border: 1px solid rgb(94, 77, 243);
@@ -82,11 +83,10 @@
 
 @media screen and (max-width: 481px) {
   .parentContainer {
-    padding: 0.7rem 0.2rem;
+    padding: 0.7rem 0rem;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    gap: 0%;
+    gap: 3%;
   }
   .menuBtn {
     display: none;
@@ -100,10 +100,13 @@
     display: flex;
     flex-grow: 0;
   }
-
+  .noSubmit {
+    width: 97%;
+  }
   ::placeholder {
     color: gray;
-    font-size: 13px;
+    font-size: 12px;
+    margin-left: 14%;
   }
   .account,
   .cart {

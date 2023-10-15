@@ -1,17 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getHeaderWithProjectId } from "../../utils/config";
 import SliderInfo from "../Slider/SliderInfo";
 import styles from "./Deals.module.css";
 import { BiHeart } from "react-icons/bi";
-import { ClickedContext, ProductIdDataCtx } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const AirConditionerDeals = () => {
   const [data, setData] = useState([]);
-
-  const { isClicked, setIsClicked } = useContext(ClickedContext);
-  const { productId, setProductId } = useContext(ProductIdDataCtx);
   const navigate = useNavigate();
 
   const fetchingTrendingData = async () => {
@@ -23,7 +19,6 @@ const AirConditionerDeals = () => {
       );
       //   console.log(res.data.data[0].name);
       setData(res.data.data);
-      // console.log(data);
     } catch (err) {
       console.error(err);
     }
@@ -34,10 +29,9 @@ const AirConditionerDeals = () => {
   }, []);
 
   const handleEachCard = (product) => {
-    setIsClicked(true);
-    setProductId(product._id);
-    navigate("/productDetails");
-    console.log(product);
+    navigate(
+      `/productDetails/${product.brand}/${product.subCategory}/${product._id}`
+    );
   };
 
   return (

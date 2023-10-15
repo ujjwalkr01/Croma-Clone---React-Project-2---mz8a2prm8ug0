@@ -4,7 +4,6 @@ import { useRef } from "react";
 
 const SliderInfo = ({ children, width }) => {
   const contentBoxRef = useRef();
-  //   console.log(props.children, props.width);
 
   const slideRight = () => {
     contentBoxRef.current.scrollLeft += width;

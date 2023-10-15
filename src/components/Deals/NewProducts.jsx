@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./NewProducts.module.css";
 import { getHeaderWithProjectId } from "../../utils/config";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ClickedContext, ProductIdDataCtx } from "../App";
 
 const NewProducts = () => {
   const [data, setData] = useState([]);
-  const { isClicked, setIsClicked } = useContext(ClickedContext);
-  const { productId, setProductId } = useContext(ProductIdDataCtx);
   const navigate = useNavigate();
 
   const fetchingNewProducts = async () => {
@@ -21,7 +18,6 @@ const NewProducts = () => {
       //   console.log(res.data.data[0].name);
       const proData = res.data.data.splice(0, 16);
       setData(proData);
-      // console.log(data);
     } catch (err) {
       console.error(err);
     }
@@ -32,10 +28,9 @@ const NewProducts = () => {
   }, []);
 
   const handleSelectProduct = (product) => {
-    setIsClicked(true);
-    setProductId(product._id);
-    navigate("/productDetails");
-    console.log(product);
+    navigate(
+      `/productDetails/${product.brand}/${product.subCategory}/${product._id}`
+    );
   };
 
   return (

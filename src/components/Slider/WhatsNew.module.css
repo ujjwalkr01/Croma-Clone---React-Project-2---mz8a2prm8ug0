@@ -1,5 +1,6 @@
 .parentContainer {
-  margin: auto;
+  /* margin-top: 0.5rem; */
+  margin-left: 5.5%;
   width: 88%;
   /* border: 1px solid red; */
   display: flex;
@@ -12,9 +13,9 @@
 .arrowBtn {
   text-align: center;
   color: white;
-  font-size: 7rem;
+  font-size: 5rem;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: bolder;
 }
 .container {
   display: flex;
