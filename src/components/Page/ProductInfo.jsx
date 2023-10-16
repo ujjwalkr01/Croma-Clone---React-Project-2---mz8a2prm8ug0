@@ -37,7 +37,7 @@ const ProductInfo = () => {
 
   const discountPrice = parseFloat(
     Math.floor(
-      Math.random() * (parseInt(prodPrice) + 25000 - parseInt(prodPrice) + 4000)
+      Math.random() * (parseInt(prodPrice) + 24000 - parseInt(prodPrice) + 9000)
     ) + parseInt(prodPrice)
   );
 
@@ -125,6 +125,7 @@ const ProductInfo = () => {
           </div>
         </div>
       </div>
+      <div className={styles.overview}>{selectedProduct.description}</div>
     </>
   );
 };

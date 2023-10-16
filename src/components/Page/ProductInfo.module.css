@@ -163,6 +163,10 @@ hr {
   background-color: rgb(70, 69, 69);
 }
 
+.overview{
+  border: 1px solid red;
+}
+
 @media screen and (max-width: 481px) {
   .parent {
     /* margin-top: 6rem; */
