@@ -24,6 +24,7 @@
   border-bottom: 1px solid rgb(66, 66, 66);
   border-left: 1px solid rgb(66, 66, 66);
   width: 75%;
+  height: 320px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -38,8 +39,8 @@
 
 .imgSect img {
   /* margin-top: 2%; */
-  width: 20rem;
-  height: 19rem;
+  width: 15rem;
+  height: 14.5rem;
   cursor: pointer;
 }
 .imgSect img[alt] {
@@ -47,6 +48,7 @@
 }
 .descrSect {
   /* border: 1px solid yellow; */
+  margin-top: 2%;
   width: 98%;
   color: rgb(236, 236, 236);
   cursor: pointer;
@@ -67,7 +69,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 19px;
 }
 .wishList {
   color: rgb(236, 236, 236);
@@ -100,27 +102,27 @@
   color: rgb(8, 199, 135);
 }
 .prodPrice {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 600;
 }
 .prodPrice span {
-  font-size: 14px;
+  font-size: 12px;
 }
 .discountPrice {
   color: gray;
   text-decoration: line-through;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 }
 .location {
-  font-size: 16px;
+  font-size: 14px;
 }
 .location span {
   color: rgb(8, 199, 135);
   text-decoration: underline;
 }
 .deliveryStat {
-  font-size: 16px;
+  font-size: 13px;
 }
 .errorMsg p:nth-last-child(4) {
   font-size: 18px;
@@ -153,6 +155,7 @@
   .containerCard {
     width: 99%;
     margin: 0;
+    height: 270px;
   }
   .imgSect {
     margin-left: 1%;
@@ -165,38 +168,39 @@
   }
   .descrSect {
     width: 100%;
+    margin-top: 4%;
   }
   .wishList {
     font-size: 20px;
   }
   .prodName {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
   }
   .btnSect button {
     font-size: 10px;
-    font-weight: 600;
-    padding: 0.2rem 0.3rem;
+    font-weight: 500;
+    padding: 0.2rem 0.2rem;
   }
   .prodRating {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
   }
   .prodPrice {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
   }
   .prodPrice span {
-    font-size: 12px;
+    font-size: 11px;
   }
   .discountPrice {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
   }
   .location {
-    font-size: 13px;
+    font-size: 12px;
   }
   .deliveryStat {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
