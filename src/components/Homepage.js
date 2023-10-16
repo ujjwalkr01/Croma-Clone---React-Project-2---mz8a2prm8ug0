@@ -1,5 +1,7 @@
+import { useContext, useEffect } from "react";
 import AirConditionerDeals from "./Deals/AirConditionerDeals";
 import AudioDeals from "./Deals/AudioDeals";
+import Health from "./Deals/Health";
 import KitchenAppliances from "./Deals/KitchenAppliances";
 import LaptopDeals from "./Deals/LaptopDeals";
 import NewProducts from "./Deals/NewProducts";
@@ -11,8 +13,19 @@ import TrendingDeals from "./Deals/TrendingDeals";
 import WashingMachineDeals from "./Deals/WashingMachineDeals";
 import SliderBar from "./Slider/SliderBar";
 import WhatsNew from "./Slider/WhatsNew";
+import { ModalCtx } from "./App";
 
 const HomePage = () => {
+  const { showModal } = useContext(ModalCtx);
+
+  useEffect(() => {
+    if (showModal) {
+      document.querySelector("body").style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
+
   return (
     <>
       <SliderBar />
@@ -28,6 +41,7 @@ const HomePage = () => {
       <WashingMachineDeals />
       <TabletDeals />
       <PaymentBanner />
+      <Health />
     </>
   );
 };

@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./ProductInfo.module.css";
 import { getHeaderWithProjectId } from "../../utils/config";
 import axios from "axios";
 import { BiHeart } from "react-icons/bi";
 import SliderInfo from "../Slider/SliderInfo";
 import { useParams } from "react-router-dom";
+import { ModalCtx } from "../App";
 
 const ProductInfo = () => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [productImg, setProductImg] = useState([]);
   const [prodFeature, setProductFeature] = useState([]);
   const [prodPrice, setProdPrice] = useState(0);
+  const { showModal } = useContext(ModalCtx);
 
   const { productId } = useParams();
 
@@ -44,9 +46,17 @@ const ProductInfo = () => {
   const savings = Number(discountPrice) - prodPrice;
   const priceOff = parseFloat((savings * 100) / prodPrice).toFixed(2);
 
+  useEffect(() => {
+    if (showModal) {
+      document.querySelector("body").style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
+
   const handleOnClick = (e) => {
     document.querySelectorAll("#indx").forEach((el) => {
-      el.parentNode.style.border = "1px solid gray";
+      el.parentNode.style.border = "1px solid rgb(66, 66, 66)";
     });
     e.target.parentNode.style.border = "2px solid rgb(8, 199, 135)";
     document
@@ -125,7 +135,12 @@ const ProductInfo = () => {
           </div>
         </div>
       </div>
-      <div className={styles.overview}>{selectedProduct.description}</div>
+      <div className={styles.overview}>
+        <h1>Overview</h1>
+        <div
+          dangerouslySetInnerHTML={{ __html: selectedProduct.description }}
+        />
+      </div>
     </>
   );
 };

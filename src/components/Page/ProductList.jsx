@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +7,7 @@ import { BsStarFill } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
 import { BiHeart } from "react-icons/bi";
 import { ColorRing } from "react-loader-spinner";
+import { ModalCtx } from "../App";
 
 const ProductList = () => {
   const { search_term } = useParams();
@@ -14,6 +15,7 @@ const ProductList = () => {
   const [hasNotError, setHasNotError] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { showModal } = useContext(ModalCtx);
 
   const fetchSearchData = async (inpValue) => {
     const config = getHeaderWithProjectId();
@@ -51,6 +53,14 @@ const ProductList = () => {
     setHasNotError(true);
   }, [search_term]);
 
+  useEffect(() => {
+    if (showModal) {
+      document.querySelector("body").style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
+
   const handleCardClick = (product) => {
     navigate(
       `/productDetails/${product.brand}/${product.subCategory}/${product._id}`
@@ -79,7 +89,7 @@ const ProductList = () => {
                     </section>
                     <section
                       className={styles.descrSect}
-                      onClick={() => handleCardClick(ele)}
+                      // onClick={() => handleCardClick(ele)}
                     >
                       <div className={styles.heading}>
                         <p className={styles.prodName}>{ele.name}</p>

@@ -1,7 +1,9 @@
 .parent {
   /* border: 1px solid red; */
+  width: 85%;
+  margin: auto;
   margin-top: 6rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   display: flex;
 }
 .imageSect {
@@ -26,9 +28,8 @@
   cursor: pointer;
 }
 .imageSect img {
-  /* margin-left: 2%; */
-  width: 26rem;
-  height: 25rem;
+  width: 24rem;
+  height: 24rem;
 }
 .imgSlideContainer {
   /* border: 1px solid yellow; */
@@ -36,7 +37,7 @@
   gap: 3%;
 }
 .imgSlideBox {
-  border: 1px solid gray;
+  border: 1px solid rgb(66, 66, 66);
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
@@ -78,7 +79,7 @@
   font-size: 14px;
 }
 .discountPriceSect {
-  border-top: 1px solid gray;
+  border-top: 1px solid rgb(66, 66, 66);
   display: flex;
   align-items: center;
   gap: 1.5%;
@@ -93,7 +94,7 @@
   font-weight: 450;
 }
 .feature {
-  border: 1px solid grey;
+  border: 1px solid rgb(66, 66, 66);
   border-radius: 6px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -111,8 +112,8 @@
 .careImg {
   margin: 1rem 1rem;
   /* margin-bottom: 1rem; */
-  height: 95px;
-  width: 555px;
+  height: 85px;
+  width: 480px;
   background-image: url("https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1696487707/Croma%20Assets/CMS/Zipcare/PDP_ZipCare_555_4oct2023_gu1cih.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -120,7 +121,7 @@
   border-radius: 6px;
 }
 hr {
-  border: 1px solid rgb(73, 73, 73);
+  border: 1px solid rgb(66, 66, 66);
 }
 .extndWarnty {
   /* border: 1px solid gray; */
@@ -138,6 +139,7 @@ hr {
   display: flex;
   gap: 4%;
   margin-left: 1rem;
+  margin-bottom: 0.2rem;
 }
 .buttons button {
   padding: 0.8rem 2.5rem;
@@ -163,15 +165,28 @@ hr {
   background-color: rgb(70, 69, 69);
 }
 
-.overview{
-  border: 1px solid red;
+.overview {
+  border: 1px solid rgb(66, 66, 66);
+  border-radius: 6px;
+  color: rgb(216, 216, 216);
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  padding: 0.2rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.overview h1 {
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 481px) {
   .parent {
-    /* margin-top: 6rem; */
     display: flex;
     flex-direction: column;
+    width: 96%;
+    margin-bottom: 2rem;
   }
   .imageSect {
     width: 97%;
@@ -179,6 +194,7 @@ hr {
   .imageSect img {
     width: 15rem;
     height: 15rem;
+    margin-bottom: 1rem;
   }
   .imgSlideBox img {
     width: 4.5rem;
@@ -190,8 +206,7 @@ hr {
     /* border: 1px solid blue; */
   }
   .careImg {
-    /* margin: auto; */
-    height: 60px;
+    height: 62px;
     width: 350px;
   }
   .imgSlideContainer {
@@ -199,7 +214,18 @@ hr {
     display: flex;
     align-items: center;
     gap: 3%;
-    /* margin: auto; */
-    /* width: 80%; */
+  }
+  .overview {
+    border: 1px solid grey;
+    border-radius: 6px;
+    color: rgb(216, 216, 216);
+    margin: auto;
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  .overview h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: underline;
   }
 }

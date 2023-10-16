@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./NavigationBar.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsList, BsPersonFill } from "react-icons/bs";
 import SearchInput from "./SearchInput";
 import { useNavigate } from "react-router-dom";
+import { ModalCtx } from "../App";
+import AuthModal from "../Authentication/AuthModal";
 
 const NavigationBar = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
+  const { showModal, setShowModal } = useContext(ModalCtx);
+
   const navigate = useNavigate();
+
+  const handleAuth = () => {
+    // navigate(`/auth/login/${false}`);
+    setShowModal(true);
+  };
 
   return (
     <nav className={styles.parentContainer}>
@@ -29,7 +38,9 @@ const NavigationBar = () => {
 
       <SearchInput />
 
-      <BsPersonFill className={styles.account} />
+      <BsPersonFill className={styles.account} onClick={handleAuth} />
+
+      {showModal && <AuthModal />}
 
       <div className={styles.shoppingCart}>
         <FaShoppingCart className={styles.cart} />
