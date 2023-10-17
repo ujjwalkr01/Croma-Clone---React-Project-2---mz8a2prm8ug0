@@ -8,6 +8,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { BiHeart } from "react-icons/bi";
 import { ColorRing } from "react-loader-spinner";
 import { ModalCtx } from "../App";
+import WishList from "../OrderRelated/WishList";
 
 const ProductList = () => {
   const { search_term } = useParams();
@@ -87,13 +88,14 @@ const ProductList = () => {
                         onClick={() => handleCardClick(ele)}
                       />
                     </section>
-                    <section
-                      className={styles.descrSect}
-                      // onClick={() => handleCardClick(ele)}
-                    >
+                    <section className={styles.descrSect}>
                       <div className={styles.heading}>
                         <p className={styles.prodName}>{ele.name}</p>
-                        <BiHeart className={styles.wishList} />
+                        <WishList
+                          value={ele._id}
+                          classStyle={styles.wishList}
+                          name="prodList"
+                        />
                       </div>
                       <div className={styles.btnSect}>
                         <button>

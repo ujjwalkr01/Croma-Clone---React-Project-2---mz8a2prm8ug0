@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { getHeaderWithProjectId } from "../../utils/config";
 import SliderInfo from "../Slider/SliderInfo";
 import styles from "./Deals.module.css";
-import { BiHeart } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import WishList from "../OrderRelated/WishList";
 
 const AudioDeals = () => {
   const [data, setData] = useState([]);
@@ -36,21 +36,19 @@ const AudioDeals = () => {
 
   return (
     <>
-      <section>Deals on Audio</section>
-      <SliderInfo width={280}>
+      <section className={styles.dealName}>Deals on Audio</section>
+      <SliderInfo width={215}>
         {data.map((ele, indx) => {
           return (
-            <div
-              key={indx}
-              className={styles.cardContainer}
-              onClick={() => handleEachCard(ele)}
-            >
-              <BiHeart className={styles.wishList} />
-              <img className={styles.prodImage} src={ele.displayImage} />
-              <p className={styles.prodName} style={{ color: "white" }}>
-                {ele.name}
-              </p>
-              <p className={styles.prodPrice} style={{ color: "white" }}>
+            <div key={indx} className={styles.cardContainer}>
+              <WishList value={ele._id} />
+              <img
+                className={styles.prodImage}
+                src={ele.displayImage}
+                onClick={() => handleEachCard(ele)}
+              />
+              <p className={styles.prodName}>{ele.name}</p>
+              <p className={styles.prodPrice}>
                 {new Intl.NumberFormat("en-IN", {
                   style: "currency",
                   currency: "INR",
@@ -72,9 +70,7 @@ const AudioDeals = () => {
                   )}
                 </span>
               </p>
-              <p className={styles.prodRating} style={{ color: "white" }}>
-                {ele.ratings}
-              </p>
+              <p className={styles.prodRating}>{ele.ratings}</p>
             </div>
           );
         })}

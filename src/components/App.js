@@ -24,15 +24,19 @@ function App() {
           <NavigationBar />
 
           <Routes>
-            {!isLoggedIn && (
+            {/* {!isLoggedIn && (
               <>
                 <Route path="/" element={<HomePage />} />
                 <Route path="" element={<HomePage />} />
               </>
-            )}
-            {isLoggedIn && (
-              <Route path="/logIn/user/:status" element={<HomePage />} />
-            )}
+            )} */}
+            <>
+              <Route path="/" element={<HomePage />} />
+              <Route path="" element={<HomePage />} />
+            </>
+            {/* {isLoggedIn && ( */}
+            <Route path="/logIn/user/:status" element={<HomePage />} />
+            {/* )} */}
 
             <Route
               path="/productDetails/:brand/:subCategory/:productId"

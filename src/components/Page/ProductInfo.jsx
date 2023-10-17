@@ -6,6 +6,7 @@ import { BiHeart } from "react-icons/bi";
 import SliderInfo from "../Slider/SliderInfo";
 import { useParams } from "react-router-dom";
 import { ModalCtx } from "../App";
+import WishList from "../OrderRelated/WishList";
 
 const ProductInfo = () => {
   const [selectedProduct, setSelectedProduct] = useState({});
@@ -68,7 +69,8 @@ const ProductInfo = () => {
     <>
       <div className={styles.parent}>
         <div className={styles.imageSect}>
-          <BiHeart className={styles.wishList} />
+          {/* <BiHeart className={styles.wishList} /> */}
+          <WishList value={selectedProduct._id} classStyles={styles.wishList} name="prodInfo"/>
           <img id="posterDisplay" src={selectedProduct.displayImage} />
 
           <SliderInfo width={110}>

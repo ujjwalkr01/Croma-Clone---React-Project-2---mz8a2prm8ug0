@@ -5,6 +5,7 @@ import SliderInfo from "../Slider/SliderInfo";
 import styles from "./Deals.module.css";
 import { BiHeart } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import WishList from "../OrderRelated/WishList";
 
 const AirConditionerDeals = () => {
   const [data, setData] = useState([]);
@@ -36,17 +37,17 @@ const AirConditionerDeals = () => {
 
   return (
     <>
-      <section>Air Conditioners</section>
-      <SliderInfo width={280}>
+      <section className={styles.dealName}>Air Conditioners</section>
+      <SliderInfo width={215}>
         {data.map((ele, indx) => {
           return (
-            <div
-              key={indx}
-              className={styles.cardContainer}
-              onClick={() => handleEachCard(ele)}
-            >
-              <BiHeart className={styles.wishList} />
-              <img className={styles.prodImage} src={ele.displayImage} />
+            <div key={indx} className={styles.cardContainer}>
+              <WishList value={ele._id} />
+              <img
+                className={styles.prodImage}
+                src={ele.displayImage}
+                onClick={() => handleEachCard(ele)}
+              />
               <p className={styles.prodName}>{ele.name}</p>
               <p className={styles.prodPrice}>
                 {new Intl.NumberFormat("en-IN", {
@@ -70,9 +71,7 @@ const AirConditionerDeals = () => {
                   )}
                 </span>
               </p>
-              <p className={styles.prodRating} style={{ color: "white" }}>
-                {ele.ratings}
-              </p>
+              <p className={styles.prodRating}>{ele.ratings}</p>
             </div>
           );
         })}

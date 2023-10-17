@@ -1,4 +1,4 @@
-section {
+.dealName {
   color: white;
   font-weight: 500;
   font-size: 25px;
@@ -8,11 +8,11 @@ section {
 }
 .cardContainer {
   /* border: 1px solid red; */
-  width: 250px;
-  height: 24rem;
-  padding: 0.2rem 1.2rem;
+  width: 200px;
+  height: 21.5rem;
+  padding: 0rem 1.2rem;
   background-color: #121212;
-  color: white;
+  color: rgb(216, 216, 216);
   box-shadow: none !important;
   border-radius: 6px;
   cursor: pointer;
@@ -26,19 +26,20 @@ section {
   box-sizing: border-box;
 }
 .wishList {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 500;
   margin-top: 1rem;
   position: relative;
   left: 48%;
-  top: 4%;
+  top: 0%;
+  /* border: 1px solid red; */
 }
 .wishList:hover {
   color: rgb(7, 233, 158);
 }
 .prodImage {
-  height: 12.5rem;
-  width: 13.5rem;
+  height: 10rem;
+  width: 11.5rem;
 }
 .prodName {
   text-align: left;
@@ -65,39 +66,41 @@ section {
   text-align: left;
 }
 @media screen and (max-width: 481px) {
-  section {
-    font-size: 21px;
-    margin-bottom: 1.4rem;
-    margin-left: 5%;
+  .dealName {
+    font-size: 20px;
+    margin-bottom: 1rem;
+    margin-left: 4%;
   }
   .cardContainer {
     width: 260px;
-    height: 21rem;
+    height: 18.5rem;
     padding: 0rem 1rem;
   }
   .wishList {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 500;
-    margin-top: 1rem;
+    margin-top: 0.4rem;
     position: relative;
     left: 48%;
-    top: 1%;
   }
 
   .prodImage {
     height: 8rem;
-    width: 12rem;
+    width: 10rem;
   }
   .prodName {
-    text-align: left;
-    min-height: 40px;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .prodPrice {
+    font-size: 14px;
     font-weight: 500;
-    text-transform: none;
+  }
+  .prodPrice span {
+    font-size: 14px;
+    font-weight: 100;
+  }
+  .prodRating {
+    font-size: 14px;
   }
 }

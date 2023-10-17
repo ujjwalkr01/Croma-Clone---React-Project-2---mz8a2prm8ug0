@@ -35,7 +35,7 @@ const NewProducts = () => {
 
   return (
     <>
-      <section>New at Croma</section>
+      <section className={styles.dealName}>New at Croma</section>
       <div className={styles.parentContainer}>
         {data.map((ele, index) => {
           return (
