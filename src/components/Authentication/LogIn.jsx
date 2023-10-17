@@ -2,6 +2,10 @@ import styles from "./Authentication.module.css";
 import { useContext, useState, useEffect } from "react";
 import Button from "./Button";
 import { ModalCtx, SwitchModalCtx } from "../App";
+import axios from "axios";
+import { getHeaderWithProjectId } from "../../utils/config";
+import { useNavigate } from "react-router-dom";
+import { ThreeDots } from "react-loader-spinner";
 
 const LogIn = () => {
   const [userInfo, setUserInfo] = useState({
@@ -10,6 +14,11 @@ const LogIn = () => {
   });
   const { setShowModal, showModal } = useContext(ModalCtx);
   const { setSwitchModal } = useContext(SwitchModalCtx);
+  const [errMsg, setErrMsg] = useState("");
+  const [isErr, setIsErr] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleUserInput = (event) => {
     const { name, value } = event.target;
@@ -32,6 +41,40 @@ const LogIn = () => {
     }
   }, [showModal]);
 
+  const fetchLogInData = async (userInfo) => {
+    userInfo.appType = "ecommerce";
+    const config = getHeaderWithProjectId();
+    try {
+      setIsLoading(true);
+      const resp = await axios.post(
+        "https://academics.newtonschool.co/api/v1/user/login",
+        userInfo,
+        config
+      );
+
+      if (resp.data.status == "success") {
+        sessionStorage.setItem("authToken", resp.data.token);
+        setIsLoading(false);
+        setErrMsg("Logged In Successfully!");
+        setTimeout(() => {
+          setShowModal(false);
+          navigate("/logIn/user/true");
+        }, 2800);
+      }
+    } catch (err) {
+      setIsErr(true);
+      setIsLoading(false);
+      setErrMsg(err.response.data.message);
+    }
+  };
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    fetchLogInData(userInfo);
+    setErrMsg("");
+    setIsErr(false);
+  };
+
   return (
     <div className={styles.overlay}>
       <div className={styles.modalWindow}>
@@ -40,7 +83,7 @@ const LogIn = () => {
         </button>
         <h1>Log In</h1>
         <hr />
-        <form>
+        <form onSubmit={handleLogIn}>
           <input
             className={styles.emailInp}
             type="text"
@@ -64,7 +107,25 @@ const LogIn = () => {
             <span>Privacy Policy</span>
           </p>
 
-          <p>ErrMsg</p>
+          {!isLoading && !isErr && (
+            <p className={styles.isSuccessfull}>{errMsg}</p>
+          )}
+          {!isLoading && isErr && <p className={styles.isErr}>{errMsg}</p>}
+
+          {isLoading && (
+            <p className={styles.loadingState}>
+              <ThreeDots
+                height="50"
+                width="50"
+                radius="9"
+                color="#4fa94d"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            </p>
+          )}
 
           <Button />
 

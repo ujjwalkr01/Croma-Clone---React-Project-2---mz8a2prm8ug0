@@ -2,6 +2,9 @@ import styles from "./Authentication.module.css";
 import { useState, useContext } from "react";
 import Button from "./Button";
 import { ModalCtx, SwitchModalCtx } from "../App";
+import { getHeaderWithProjectId } from "../../utils/config";
+import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({
@@ -9,6 +12,10 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [errMsg, setErrMsg] = useState("");
+  const [isErr, setIsErr] = useState(false);
 
   const { setShowModal } = useContext(ModalCtx);
   const { setSwitchModal } = useContext(SwitchModalCtx);
@@ -27,6 +34,35 @@ const SignUp = () => {
     setSwitchModal(false);
   };
 
+  const postSignUpData = async (userInfo) => {
+    userInfo.appType = "ecommerce";
+    const config = getHeaderWithProjectId();
+    try {
+      setIsLoading(true);
+      const resp = await axios.post(
+        "https://academics.newtonschool.co/api/v1/user/signup",
+        userInfo,
+        config
+      );
+
+      if (resp.data.status == "success") {
+        setIsLoading(false);
+        setErrMsg("Account created succesffuly!");
+      }
+    } catch (err) {
+      setIsErr(true);
+      setIsLoading(false);
+      setErrMsg(err.response.data.message);
+    }
+  };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    postSignUpData(userInfo);
+    setErrMsg("");
+    setIsErr(false);
+  };
+
   return (
     <div className={styles.overlay}>
       <div className={styles.modalWindow}>
@@ -35,7 +71,7 @@ const SignUp = () => {
         </button>
         <h1>Sign Up</h1>
         <hr />
-        <form>
+        <form onSubmit={handleSignUp}>
           <input
             className={styles.userNameInp}
             type="text"
@@ -71,7 +107,25 @@ const SignUp = () => {
             <span>Privacy Policy</span>
           </p>
 
-          <p>ErrMsg</p>
+          {!isLoading && !isErr && (
+            <p className={styles.isSuccessfull}>{errMsg}</p>
+          )}
+          {!isLoading && isErr && <p className={styles.isErr}>{errMsg}</p>}
+
+          {isLoading && (
+            <p className={styles.loadingState}>
+              <ThreeDots
+                height="50"
+                width="50"
+                radius="9"
+                color="#4fa94d"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            </p>
+          )}
 
           <Button />
 
