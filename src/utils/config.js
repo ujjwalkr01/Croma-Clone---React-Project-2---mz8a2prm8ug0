@@ -15,6 +15,14 @@ export const getToken = () => {
   }
 };
 
+export const getCntCartItem = () => {
+  const cntItem = sessionStorage.getItem("noOfItems");
+  if(!cntItem){
+    return 0;
+  }
+  return cntItem;
+};
+
 export const getAuthHeaderConfig = () => {
   const token = sessionStorage.getItem("authToken");
   if (token) {

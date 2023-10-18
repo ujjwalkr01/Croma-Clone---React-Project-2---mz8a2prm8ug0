@@ -1,21 +1,38 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./NavigationBar.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsList, BsPersonFill } from "react-icons/bs";
 import SearchInput from "./SearchInput";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ModalCtx } from "../App";
 import AuthModal from "../Authentication/AuthModal";
+import { getCntCartItem, getToken } from "../../utils/config";
 
 const NavigationBar = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
+  const [noOfItem, setnoOfItem] = useState(0);
   const { showModal, setShowModal } = useContext(ModalCtx);
 
   const navigate = useNavigate();
+  const token = getToken();
+  const cntItem = getCntCartItem();
+
+  const location = useLocation();
+  const { data } = location.state || {};
+  // console.log(data);
 
   const handleAuth = () => {
-    // navigate(`/auth/login/${false}`);
-    setShowModal(true);
+    if (!token) {
+      setShowModal(true);
+    }
+  };
+
+  useEffect(() => {
+    setnoOfItem(cntItem);
+  });
+
+  const handleCartClick = () => {
+    navigate("/cartSec");
   };
 
   return (
@@ -40,11 +57,11 @@ const NavigationBar = () => {
 
       <BsPersonFill className={styles.account} onClick={handleAuth} />
 
-      {showModal && <AuthModal />}
+      {!token && <AuthModal />}
 
       <div className={styles.shoppingCart}>
-        <FaShoppingCart className={styles.cart} />
-        <p>0</p>
+        <FaShoppingCart className={styles.cart} onClick={handleCartClick} />
+        <p>{noOfItem}</p>
       </div>
     </nav>
   );

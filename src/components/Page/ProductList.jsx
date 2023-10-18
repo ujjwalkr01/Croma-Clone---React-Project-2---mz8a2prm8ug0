@@ -5,7 +5,6 @@ import axios from "axios";
 import { getHeaderWithProjectId } from "../../utils/config";
 import { BsStarFill } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
-import { BiHeart } from "react-icons/bi";
 import { ColorRing } from "react-loader-spinner";
 import { ModalCtx } from "../App";
 import WishList from "../OrderRelated/WishList";

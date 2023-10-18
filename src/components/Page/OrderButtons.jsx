@@ -1,5 +1,4 @@
-// import styles from "./ProductInfo.module.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { getAuthHeaderConfig, getToken } from "../../utils/config";
 import { ModalCtx } from "../App";
 import axios from "axios";
@@ -9,7 +8,7 @@ const OrderButtons = ({ prodId }) => {
   const { setShowModal } = useContext(ModalCtx);
   const navigate = useNavigate();
 
-  const addProductToCart = async (data) => {
+  const addProductToCart = async (data, btnName) => {
     const config = getAuthHeaderConfig();
     try {
       const res = await axios.patch(
@@ -17,17 +16,24 @@ const OrderButtons = ({ prodId }) => {
         data,
         config
       );
-      console.log(res);
+      // console.log(res.data);
+      if (res.data.status == "success" && btnName == "buyNowBtn") {
+        sessionStorage.setItem("noOfItems", res.data.data.items.length);
+        navigate("/cartSec", { state: { data: res.data.data.items } });
+      } else if (res.data.status == "success" && btnName == "cartBtn") {
+        sessionStorage.setItem("noOfItems", res.data.data.items.length);
+        navigate({ state: { data: res.data.data.items } });
+      }
     } catch (err) {
-      // console.error(err.response.data.message);
+      console.error(err.message);
     }
   };
-  const handleBuyNow = () => {
+  const handleBuyNow = (e) => {
+    console.log(e.target.id);
     const token = getToken();
     if (token) {
       let data = { quantity: 2 };
-      addProductToCart(data);
-      navigate("/cart");
+      addProductToCart(data, e.target.id);
     } else {
       setShowModal(true);
     }
@@ -35,8 +41,13 @@ const OrderButtons = ({ prodId }) => {
 
   return (
     <>
-      <button onClick={handleBuyNow}>Buy Now</button>
-      <button onClick={handleBuyNow}>Add To Cart</button>
+      <button id="buyNowBtn" onClick={handleBuyNow}>
+        Buy Now
+      </button>
+
+      <button id="cartBtn" onClick={handleBuyNow}>
+        Add To Cart
+      </button>
     </>
   );
 };

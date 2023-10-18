@@ -35,9 +35,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="" element={<HomePage />} />
             </>
-            {/* {isLoggedIn && ( */}
+
             <Route path="/logIn/user/:status" element={<HomePage />} />
-            {/* )} */}
 
             <Route
               path="/productDetails/:brand/:subCategory/:productId"
@@ -45,7 +44,8 @@ function App() {
             />
 
             <Route path="/list/search/:search_term" element={<ProductList />} />
-            <Route path="/cart" element={<CartPage />} />
+
+            <Route path="/cartSec" element={<CartPage />} />
           </Routes>
         </SwitchModalCtx.Provider>
       </ModalCtx.Provider>

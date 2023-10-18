@@ -1,5 +1,5 @@
 .parentContainer {
-  border-top: 1px solid rgb(83, 82, 82);
+  /* border-top: 1px solid rgb(83, 82, 82); */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -8,7 +8,6 @@
 }
 .sect1 {
   /* border: 1px solid white; */
-  height: 300px;
   width: 400px;
   padding: 1rem;
   display: flex;
@@ -66,10 +65,8 @@ input {
 @media screen and (max-width: 481px) {
   .parentContainer {
     padding: 0rem;
-    /* border: 1px solid red; */
   }
   .sect1 {
-    height: 200px;
     width: 350px;
     /* border: 1px solid red; */
   }
