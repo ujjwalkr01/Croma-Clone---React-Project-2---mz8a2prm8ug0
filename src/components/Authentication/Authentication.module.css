@@ -68,6 +68,9 @@ h1 {
   padding: 0.8rem 7.5rem;
   cursor: pointer;
 }
+.authBtn:hover{
+  opacity: .8;
+}
 .isErr {
   color: orangered;
   font-size: 14px;

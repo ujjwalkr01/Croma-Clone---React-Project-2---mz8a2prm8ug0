@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./ProductInfo.module.css";
-import { getHeaderWithProjectId } from "../../utils/config";
+import { getHeaderWithProjectId, getToken } from "../../utils/config";
 import axios from "axios";
-import { BiHeart } from "react-icons/bi";
 import SliderInfo from "../Slider/SliderInfo";
 import { useParams } from "react-router-dom";
 import { ModalCtx } from "../App";
 import WishList from "../OrderRelated/WishList";
+import OrderButtons from "./OrderButtons.jsx";
 
 const ProductInfo = () => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [productImg, setProductImg] = useState([]);
   const [prodFeature, setProductFeature] = useState([]);
   const [prodPrice, setProdPrice] = useState(0);
-  const { showModal } = useContext(ModalCtx);
+  const { showModal, setShowModal } = useContext(ModalCtx);
 
   const { productId } = useParams();
 
@@ -69,8 +69,11 @@ const ProductInfo = () => {
     <>
       <div className={styles.parent}>
         <div className={styles.imageSect}>
-          {/* <BiHeart className={styles.wishList} /> */}
-          <WishList value={selectedProduct._id} classStyles={styles.wishList} name="prodInfo"/>
+          <WishList
+            value={selectedProduct._id}
+            classStyles={styles.wishList}
+            name="prodInfo"
+          />
           <img id="posterDisplay" src={selectedProduct.displayImage} />
 
           <SliderInfo width={110}>
@@ -132,8 +135,7 @@ const ProductInfo = () => {
           </div>
           <hr />
           <div className={styles.buttons}>
-            <button>Buy Now</button>
-            <button>Add To Cart</button>
+            <OrderButtons prodId={productId} />
           </div>
         </div>
       </div>

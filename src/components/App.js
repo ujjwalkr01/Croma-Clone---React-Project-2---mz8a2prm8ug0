@@ -7,6 +7,7 @@ import HomePage from "./Homepage";
 import NavigationBar from "./NavBar/NavigationBar";
 import { createContext, useState } from "react";
 import { getToken } from "../utils/config";
+import CartPage from "./OrderRelated/CartPage";
 
 export const ModalCtx = createContext();
 export const SwitchModalCtx = createContext();
@@ -44,6 +45,7 @@ function App() {
             />
 
             <Route path="/list/search/:search_term" element={<ProductList />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </SwitchModalCtx.Provider>
       </ModalCtx.Provider>
