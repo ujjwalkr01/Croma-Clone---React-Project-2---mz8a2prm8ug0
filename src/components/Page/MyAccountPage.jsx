@@ -11,6 +11,10 @@ const MyAccountPage = () => {
     navigate("/my-account/wishlist");
   };
 
+  const handleMyOrderpage = () => {
+    navigate("/my-account/orders");
+  };
+
   return (
     <div className={styles.parentContainer}>
       <p className={styles.heading}>My Account</p>
@@ -30,7 +34,7 @@ const MyAccountPage = () => {
           <div className={styles.logo}>
             <BsBoxSeam />
           </div>
-          <div className={styles.text}>
+          <div className={styles.text} onClick={handleMyOrderpage}>
             <p>My Orders</p>
             <p>View,track,cancel orders and buy again</p>
           </div>

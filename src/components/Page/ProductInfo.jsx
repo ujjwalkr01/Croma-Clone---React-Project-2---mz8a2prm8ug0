@@ -36,7 +36,7 @@ const ProductInfo = () => {
       setProdPrice(res.data.data.price);
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 800);
     } catch (err) {
       console.error(err);
     }

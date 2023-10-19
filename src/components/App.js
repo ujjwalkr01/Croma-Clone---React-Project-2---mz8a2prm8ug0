@@ -11,6 +11,7 @@ import Home from "./Home";
 import MyAccountPage from "./Page/MyAccountPage";
 import MyWishlistPage from "./Page/MyWishlistPage";
 import CheckoutPage from "./Page/CheckoutPage";
+import GetMyOrders from "./Page/GetMyOrders";
 
 export const ModalCtx = createContext();
 export const SwitchModalCtx = createContext();
@@ -66,6 +67,11 @@ function App() {
             <Route
               path="/checkout/payment"
               element={isLoggedIn ? <CheckoutPage /> : <Navigate to={"/"} />}
+            />
+
+            <Route
+              path="/my-account/orders"
+              element={isLoggedIn ? <GetMyOrders /> : <Navigate to={"/"} />}
             />
           </Routes>
         </SwitchModalCtx.Provider>

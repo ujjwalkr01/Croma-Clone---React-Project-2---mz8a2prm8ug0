@@ -66,7 +66,7 @@ const CheckoutPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
+    console.log(typeof paymntInfo.cardNumber);
     if (paymntInfo.cardNumber.length > 16 || paymntInfo.cvv.length > 3) {
       alert("Invalid credentials!");
     } else {
@@ -120,12 +120,13 @@ const CheckoutPage = () => {
 
           <div className={styles.cvv_exp}>
             <div className={styles.exp}>
-              <label htmlFor="expirationDate">Expiration Date:</label>
+              <label htmlFor="expirationDate">Expiry:</label>
 
               <input
-                type="date"
+                type="text"
                 className="expirationDate"
                 name="expiration-date"
+                placeholder="MM/YY"
                 required
               />
             </div>
@@ -138,7 +139,7 @@ const CheckoutPage = () => {
                 type="number"
                 className="cvv"
                 name="cvv"
-                placeholder="cvv number"
+                placeholder="CVV"
                 min="3"
                 required
                 onChange={handleUserInput}
