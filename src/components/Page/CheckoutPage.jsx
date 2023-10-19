@@ -36,7 +36,7 @@ const CheckoutPage = () => {
       alert("Order Placed Successfully!");
       setTimeout(() => {
         navigate("/logIn/user/:true");
-      }, 200);
+      }, 400);
     }
   };
 
