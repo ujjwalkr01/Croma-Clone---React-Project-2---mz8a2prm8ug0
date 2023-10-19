@@ -21,7 +21,7 @@ function App() {
   const [switchModal, setSwitchModal] = useState(false);
 
   const isLoggedIn = getToken();
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return (
     <div className="App">

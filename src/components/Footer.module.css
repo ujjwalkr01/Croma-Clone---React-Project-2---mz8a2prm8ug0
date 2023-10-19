@@ -19,11 +19,12 @@
 .sect1 p:first-child {
   font-weight: bold;
 }
-input {
+.inpt {
   height: 2.8rem;
   width: 80%;
   border-radius: 6px;
   border: none;
+  background-color: white;
 }
 ::placeholder {
   position: absolute;

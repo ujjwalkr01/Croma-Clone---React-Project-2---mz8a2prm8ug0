@@ -6,11 +6,20 @@ const Footer = () => {
     <div className={styles.parentContainer}>
       <div className={styles.sect1}>
         <p>CONNECT WITH US</p>
-        <input type="email" placeholder="Enter Email ID" />
+        <input
+          className={styles.inpt}
+          type="email"
+          placeholder="Enter Email ID"
+        />
 
         <div className={styles.socialLink}>
           <BsYoutube />
-          <BsGithub />
+          <a
+            href="https://github.com/ujjwalkr01/Croma-Clone---React-Project-2---mz8a2prm8ug0.git"
+            target="_blank"
+          >
+            <BsGithub />
+          </a>
           <BsLinkedin />
         </div>
         <p>© Copyright 2023 Croma. All rights reserved</p>
@@ -29,18 +38,6 @@ const Footer = () => {
           <p>Help And Support</p>
         </div>
       </div>
-      {/* <div className={styles.sect4}>
-        <div>
-          <p>E-Waste</p>
-          <p>Franchise Opportunity</p>
-          <p>Site Map</p>
-          <p>Careers At Croma</p>
-          <p>Terms Of Use</p>
-          <p>Disclaimer</p>
-          <p>Privacy Policy</p>
-          <p>Gift Card</p>
-        </div>
-      </div> */}
     </div>
   );
 };
