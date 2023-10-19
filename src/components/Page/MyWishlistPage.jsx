@@ -14,6 +14,7 @@ const MyWishlistPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  // fetching the wishlist data....
   const fetchWishListProd = async () => {
     const config = getAuthHeaderConfig();
     try {
@@ -37,7 +38,8 @@ const MyWishlistPage = () => {
     fetchWishListProd();
   }, []);
 
-  const deleteProductFromWishlist = async (prodId, data) => {
+  //deleing the product from wishlist....
+  const removeProductFromWishlist = async (prodId, data) => {
     const config = getAuthHeaderConfigWithContent();
     try {
       setIsLoading(true);
@@ -60,12 +62,37 @@ const MyWishlistPage = () => {
   const handleDeleteWishlistProd = (e) => {
     let prodId = e.target.parentNode.parentNode.getAttribute("id");
     let data = { quantity: 2 };
-    deleteProductFromWishlist(prodId, data);
+    removeProductFromWishlist(prodId, data);
   };
 
   const handleOnClickImg = (e) => {
     let prodId = e.target.getAttribute("alt");
     navigate(`/productDetails/:brand/:subCategory/${prodId}`);
+  };
+
+  // moving wishlist item to cart...
+  const addProductToCart = async (prodId, data) => {
+    const config = getAuthHeaderConfig();
+    try {
+      const res = await axios.patch(
+        `https://academics.newtonschool.co/api/v1/ecommerce/cart/${prodId}`,
+        data,
+        config
+      );
+      // console.log(res.data);
+      sessionStorage.setItem("noOfItems", res.data.data.items.length);
+      navigate({ state: { data: res.data.data.items } });
+      alert(res.data.message);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const handleOnClickAddCart = (e) => {
+    let prodId = e.target.parentNode.parentNode.getAttribute("id");
+    let data = { quantity: 2 };
+    addProductToCart(prodId, data);
+    removeProductFromWishlist(prodId, data);
   };
 
   return (
@@ -133,7 +160,10 @@ const MyWishlistPage = () => {
                       >
                         Delete
                       </button>
-                      <button className={styles.addCartProdBtn}>
+                      <button
+                        className={styles.addCartProdBtn}
+                        onClick={handleOnClickAddCart}
+                      >
                         Add To Cart
                       </button>
                     </div>

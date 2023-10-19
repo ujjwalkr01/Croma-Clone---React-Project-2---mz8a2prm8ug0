@@ -36,7 +36,7 @@ const ProductInfo = () => {
       setProdPrice(res.data.data.price);
       setTimeout(() => {
         setIsLoading(false);
-      }, 200);
+      }, 500);
     } catch (err) {
       console.error(err);
     }
@@ -161,7 +161,7 @@ const ProductInfo = () => {
           </div>
         </>
       ) : (
-        <div style={{ height: "500px", padding: "12rem" }}>
+        <div style={{ height: "500px", padding: "10rem" }}>
           <RotatingLines
             strokeColor="grey"
             strokeWidth="5"
