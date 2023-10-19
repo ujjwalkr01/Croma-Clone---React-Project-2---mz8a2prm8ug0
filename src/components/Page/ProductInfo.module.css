@@ -65,10 +65,16 @@
   font-weight: 540;
 }
 .prodRating {
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1%;
   font-size: 14px;
+  font-weight: 600;
   color: rgb(8, 199, 135);
-  font-family: Arial, Helvetica, sans-serif;
+}
+.prodRating span{
+  text-decoration: underline;
+  font-weight: 500;
 }
 .prodPrice {
   font-size: 24px;
@@ -153,7 +159,7 @@ hr {
   font-weight: 700;
 }
 .buttons button:nth-child(1):hover {
-  background-color: rgb(38, 228, 164);
+  opacity: 0.8;
 }
 .buttons button:nth-child(2) {
   background-color: transparent;
@@ -162,7 +168,8 @@ hr {
   font-weight: 700;
 }
 .buttons button:nth-child(2):hover {
-  background-color: rgb(70, 69, 69);
+  border: 1px solid rgb(8, 199, 135);
+  opacity: 0.8;
 }
 
 .overview {

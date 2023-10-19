@@ -23,6 +23,7 @@ const OrderButtons = ({ prodId }) => {
       } else if (res.data.status == "success" && btnName == "cartBtn") {
         sessionStorage.setItem("noOfItems", res.data.data.items.length);
         navigate({ state: { data: res.data.data.items } });
+        alert(res.data.message);
       }
     } catch (err) {
       console.error(err.message);

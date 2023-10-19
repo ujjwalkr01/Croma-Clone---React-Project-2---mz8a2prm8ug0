@@ -16,7 +16,7 @@ import WhatsNew from "./Slider/WhatsNew";
 import { ModalCtx } from "./App";
 import Footer from "./Footer";
 
-const HomePage = () => {
+const Home = () => {
   const { showModal } = useContext(ModalCtx);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ const HomePage = () => {
     </>
   );
 };
-export default HomePage;
+export default Home;

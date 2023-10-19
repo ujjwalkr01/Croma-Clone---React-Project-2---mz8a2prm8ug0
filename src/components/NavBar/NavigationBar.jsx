@@ -6,7 +6,12 @@ import SearchInput from "./SearchInput";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ModalCtx } from "../App";
 import AuthModal from "../Authentication/AuthModal";
-import { getCntCartItem, getToken } from "../../utils/config";
+import {
+  getAuthHeaderConfig,
+  getCntCartItem,
+  getToken,
+} from "../../utils/config";
+import axios from "axios";
 
 const NavigationBar = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
@@ -21,17 +26,44 @@ const NavigationBar = () => {
   const { data } = location.state || {};
   // console.log(data);
 
+  const fetchCartCount = async () => {
+    const config = getAuthHeaderConfig();
+    try {
+      const res = await axios.get(
+        "https://academics.newtonschool.co/api/v1/ecommerce/cart",
+        config
+      );
+
+      if (res.data.status == "success") {
+        console.log(res.data.data.items.length);
+        setnoOfItem(res.data.data.items.length);
+      }
+    } catch (err) {
+      console.error(err.response.data.message);
+    }
+  };
+
   const handleAuth = () => {
     if (!token) {
       setShowModal(true);
+      return;
+    } else {
+      navigate("/my-account");
     }
   };
 
   useEffect(() => {
+    if (token && data == undefined) {
+      fetchCartCount();
+    }
     setnoOfItem(cntItem);
-  });
+  }, [token, data]);
 
   const handleCartClick = () => {
+    if (!token) {
+      setShowModal(true);
+      return;
+    }
     navigate("/cartSec");
   };
 

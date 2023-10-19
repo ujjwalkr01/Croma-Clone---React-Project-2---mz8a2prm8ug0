@@ -1,0 +1,203 @@
+.parentContainer {
+  /* border: 1px solid red; */
+  margin-top: 4.8rem;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 1rem;
+}
+.heading {
+  text-align: left;
+  font-size: 28px;
+  font-weight: 480;
+  margin-left: 10%;
+  margin-bottom: 2.5rem;
+}
+
+.cartProd {
+  /* border: 1px solid yellowgreen; */
+  width: 80%;
+  margin: auto;
+}
+
+.containerCard {
+  width: 100%;
+  height: 275px;
+  display: flex;
+  background-color: transparent;
+  border: 1px solid rgb(88, 88, 88);
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.imgSect {
+  /* border: 1px solid red; */
+  width: 18%;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.imgSect img {
+  width: 16rem;
+  height: 15rem;
+  cursor: pointer;
+}
+.imgSect img[alt] {
+  font-size: 10px;
+}
+.descrSect {
+  /* border: 1px solid yellow; */
+  width: 100%;
+  color: rgb(216, 216, 216);
+  cursor: pointer;
+}
+.prodName {
+  /* border: 1px solid red; */
+  width: 100%;
+  text-align: left;
+  line-height: 1.2;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-weight: bold;
+  font-size: 20px;
+}
+.prodId {
+  font-size: 16px;
+}
+.prodRating {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(8, 199, 135);
+}
+.prodPrice {
+  font-size: 22px;
+  font-weight: 600;
+}
+.discountPrice {
+  color: gray;
+  text-decoration: line-through;
+  font-size: 16px;
+  font-weight: 500;
+}
+.btns {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 4%;
+  margin-left: 1rem;
+  margin-bottom: 0.2rem;
+}
+.deleteProdBtn {
+  background-color: transparent;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 6px;
+  padding: 0.8rem 3.5rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+.deleteProdBtn:hover {
+  cursor: pointer;
+  border: 1px solid rgb(8, 199, 135);
+  opacity: 0.8;
+}
+.addCartProdBtn {
+  background-color: rgb(8, 199, 135);
+  border-radius: 6px;
+  padding: 0.8rem 2rem;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+}
+.addCartProdBtn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 481px) {
+  .parentContainer {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .heading {
+    text-align: left;
+    margin-left: 4%;
+    font-size: 24px;
+  }
+  .cardContainer {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+  }
+  .cartProd {
+    width: 98%;
+    margin-left: 1%;
+  }
+
+  .containerCard {
+    height: 240px;
+  }
+
+  .imgSect {
+    margin-left: 1%;
+    margin-top: 8%;
+    width: 22%;
+  }
+  .imgSect img {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+  .descrSect {
+    padding-right: 0.4rem;
+  }
+  .prodName {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .prodId {
+    font-size: 13px;
+  }
+  .prodRating {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .prodPrice {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .prodPrice span {
+    font-size: 10px;
+  }
+  .discountPrice {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .btns {
+    margin-top: 1.8rem;
+    margin-left: 0.2rem;
+  }
+  .deleteProdBtn {
+    background-color: transparent;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 6px;
+    padding: 0.8rem 2rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .addCartProdBtn {
+    background-color: rgb(8, 199, 135);
+    border-radius: 6px;
+    padding: 0.8rem 2rem;
+    font-size: 14px;
+    font-weight: bolder;
+    border: none;
+  }
+}

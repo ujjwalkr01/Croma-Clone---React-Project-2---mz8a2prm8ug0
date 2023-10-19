@@ -17,7 +17,7 @@ export const getToken = () => {
 
 export const getCntCartItem = () => {
   const cntItem = sessionStorage.getItem("noOfItems");
-  if(!cntItem){
+  if (!cntItem) {
     return 0;
   }
   return cntItem;
@@ -30,6 +30,22 @@ export const getAuthHeaderConfig = () => {
       headers: {
         Authorization: `Bearer ${token}`,
         projectID: PROJECT_ID,
+      },
+    };
+  } else {
+    return {
+      error: "user not logged in",
+    };
+  }
+};
+export const getAuthHeaderConfigWithContent = () => {
+  const token = sessionStorage.getItem("authToken");
+  if (token) {
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        projectID: PROJECT_ID,
+        "Content-Type": "application/json",
       },
     };
   } else {

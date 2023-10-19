@@ -5,6 +5,7 @@ import SliderInfo from "../Slider/SliderInfo";
 import styles from "./Deals.module.css";
 import WishList from "../OrderRelated/WishList";
 import { useNavigate } from "react-router-dom";
+import { BsStarFill } from "react-icons/bs";
 
 const LaptopDeals = () => {
   const [data, setData] = useState([]);
@@ -70,7 +71,10 @@ const LaptopDeals = () => {
                   )}
                 </span>
               </p>
-              <p className={styles.prodRating}>{ele.ratings}</p>
+              <p className={styles.prodRating}>
+                {(Math.random() * (5.0 - 4.0) + 4.0).toFixed(1)}
+                <BsStarFill />
+              </p>
             </div>
           );
         })}

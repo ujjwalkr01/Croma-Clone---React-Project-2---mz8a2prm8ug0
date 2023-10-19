@@ -5,7 +5,10 @@ import OrderSummary from "./OrderSummary";
 import { RotatingLines } from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { getAuthHeaderConfig } from "../../utils/config";
+import {
+  getAuthHeaderConfig,
+  getAuthHeaderConfigWithContent,
+} from "../../utils/config";
 
 function getRandomDate(startDate, endDate) {
   const startTimestamp = startDate.getTime();
@@ -50,6 +53,27 @@ const CartPage = () => {
     }
   };
 
+  const deleteProductFromCart = async (prodId, data) => {
+    const config = getAuthHeaderConfigWithContent();
+    try {
+      setIsLoading(true);
+      const res = await axios.delete(
+        `https://academics.newtonschool.co/api/v1/ecommerce/cart/${prodId}`,
+        config,
+        data
+      );
+
+      if (res.data.status == "success") {
+        setCartItems(res.data.data.items);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 200);
+      }
+    } catch (err) {
+      console.error(err.response.data.message);
+    }
+  };
+
   useEffect(() => {
     if (data == undefined) {
       fetchCartData();
@@ -58,11 +82,18 @@ const CartPage = () => {
       setCartItems(data);
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 400);
     }
 
     generateRandomDate();
   }, [data]);
+
+  const handleDeleteProd = (e) => {
+    // console.log(e.target.parentNode.getAttribute("id"));
+    let prodId = e.target.parentNode.getAttribute("id");
+    let data = { quantity: 2 };
+    deleteProductFromCart(prodId, data);
+  };
 
   let sum = 0;
   const totalPrice = cartItems.map((ele) => {
@@ -91,9 +122,11 @@ const CartPage = () => {
                         alt={ele.product.name}
                       />
                     </section>
-                    <section className={styles.descrSect}>
+                    <section id={ele.product._id} className={styles.descrSect}>
                       <p className={styles.prodName}>{ele.product.name}</p>
-
+                      <p className={styles.prodId} id="prodId">
+                        Product Id:&nbsp;{ele.product._id}
+                      </p>
                       <p className={styles.prodRating}>
                         {(Math.random() * (5.0 - 4.0) + 4.0).toFixed(1)}
                         <BsStarFill />
@@ -127,7 +160,12 @@ const CartPage = () => {
                         Standard Delivery by{" "}
                         {randomDate ? `${randomDate.toDateString()}` : ""}
                       </p>
-                      <button className="">Remove</button>
+                      <button
+                        className={styles.deleteProdBtn}
+                        onClick={handleDeleteProd}
+                      >
+                        Remove
+                      </button>
                     </section>
                   </div>
                 );
@@ -152,13 +190,15 @@ const CartPage = () => {
           </div>
         </>
       ) : (
-        <RotatingLines
-          strokeColor="grey"
-          strokeWidth="5"
-          animationDuration="0.75"
-          width="90"
-          visible={true}
-        />
+        <div style={{ height: "500px", padding: "8rem" }}>
+          <RotatingLines
+            strokeColor="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="80"
+            visible={true}
+          />
+        </div>
       )}
     </div>
   );

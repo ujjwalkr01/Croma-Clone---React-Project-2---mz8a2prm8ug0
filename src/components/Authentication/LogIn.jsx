@@ -54,6 +54,9 @@ const LogIn = () => {
 
       if (resp.data.status == "success") {
         sessionStorage.setItem("authToken", resp.data.token);
+        sessionStorage.setItem("name", resp.data.data.name);
+        sessionStorage.setItem("email", resp.data.data.email);
+
         setIsLoading(false);
         setErrMsg("Logged In Successfully!");
         setTimeout(() => {

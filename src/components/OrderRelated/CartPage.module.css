@@ -5,7 +5,6 @@
   color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    /* margin-bottom: 10rem; */
 }
 h2 {
   /* color: black; */
@@ -56,11 +55,12 @@ h2 {
   /* border: 1px solid red; */
   width: 18%;
   margin-left: 1%;
+  margin-top: 4%;
 }
 
 .imgSect img {
-  width: 12rem;
-  height: 12rem;
+  width: 11.5rem;
+  height: 11rem;
   cursor: pointer;
 }
 .imgSect img[alt] {
@@ -83,6 +83,9 @@ h2 {
   -webkit-box-orient: vertical;
   font-weight: 500;
   font-size: 17px;
+}
+.prodId {
+  font-size: 16px;
 }
 .prodRating {
   /* border: 1px solid red; */
@@ -109,6 +112,17 @@ h2 {
 
 .deliveryStat {
   font-size: 12px;
+}
+
+.deleteProdBtn {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+}
+.deleteProdBtn:hover {
+  cursor: pointer;
+  border: 1px solid rgb(8, 199, 135);
 }
 
 /*--------------------- right part------------ */
@@ -225,8 +239,8 @@ h2 {
     width: 22%;
   }
   .imgSect img {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 6.8rem;
+    height: 7rem;
   }
   .descrSect {
     padding-right: 0.4rem;
@@ -234,6 +248,9 @@ h2 {
   .prodName {
     font-weight: 500;
     font-size: 16px;
+  }
+  .prodId {
+    font-size: 13px;
   }
   .prodRating {
     font-size: 12px;
@@ -252,6 +269,10 @@ h2 {
   }
   .deliveryStat {
     font-size: 10px;
+  }
+
+  .deleteProdBtn {
+    padding: 0.3rem 1rem;
   }
 
   .prodCheckOutDetails {

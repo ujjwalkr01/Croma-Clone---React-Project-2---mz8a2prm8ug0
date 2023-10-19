@@ -1,10 +1,12 @@
 .parentContainer {
-  /* border-top: 1px solid rgb(83, 82, 82); */
+  border-top: 1px solid rgb(110, 110, 110);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   color: white;
   padding: 1rem;
+  margin-top: 1rem;
+  background-color: rgb(36, 36, 36);
 }
 .sect1 {
   /* border: 1px solid white; */

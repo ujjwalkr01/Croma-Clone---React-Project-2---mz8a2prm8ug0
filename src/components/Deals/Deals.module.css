@@ -64,6 +64,12 @@
 }
 .prodRating {
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(8, 199, 135);
 }
 @media screen and (max-width: 481px) {
   .dealName {

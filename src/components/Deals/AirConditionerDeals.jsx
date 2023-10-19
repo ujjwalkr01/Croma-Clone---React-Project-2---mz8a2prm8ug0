@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getHeaderWithProjectId } from "../../utils/config";
 import SliderInfo from "../Slider/SliderInfo";
 import styles from "./Deals.module.css";
-import { BiHeart } from "react-icons/bi";
+import { BsStarFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import WishList from "../OrderRelated/WishList";
 
@@ -71,7 +71,10 @@ const AirConditionerDeals = () => {
                   )}
                 </span>
               </p>
-              <p className={styles.prodRating}>{ele.ratings}</p>
+              <p className={styles.prodRating}>
+                {(Math.random() * (5.0 - 4.0) + 4.0).toFixed(1)}
+                <BsStarFill />
+              </p>
             </div>
           );
         })}
