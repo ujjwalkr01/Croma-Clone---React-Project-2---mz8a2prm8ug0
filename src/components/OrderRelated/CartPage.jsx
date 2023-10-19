@@ -185,7 +185,11 @@ const CartPage = () => {
                   </span>
                 </div>
               </div>
-              <OrderSummary totPrice={sum} totItem={cartItems.length} />
+              <OrderSummary
+                totPrice={sum}
+                totItem={cartItems.length}
+                value={cartItems}
+              />
             </div>
           </div>
         </>

@@ -10,6 +10,7 @@ import CartPage from "./OrderRelated/CartPage";
 import Home from "./Home";
 import MyAccountPage from "./Page/MyAccountPage";
 import MyWishlistPage from "./Page/MyWishlistPage";
+import CheckoutPage from "./Page/CheckoutPage";
 
 export const ModalCtx = createContext();
 export const SwitchModalCtx = createContext();
@@ -60,6 +61,11 @@ function App() {
             <Route
               path="/cartSec"
               element={isLoggedIn ? <CartPage /> : <Navigate to={"/"} />}
+            />
+
+            <Route
+              path="/checkout/payment"
+              element={isLoggedIn ? <CheckoutPage /> : <Navigate to={"/"} />}
             />
           </Routes>
         </SwitchModalCtx.Provider>

@@ -1,0 +1,220 @@
+.parentContainer {
+  background-color: rgb(240, 240, 240);
+  color: black;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+.price {
+  /* border: 1px solid red; */
+  text-align: left;
+  font-size: 20px;
+  width: 60%;
+  margin-left: 4%;
+}
+.price span {
+  font-size: 16px;
+  font-weight: 700;
+}
+.cardContainer {
+  display: flex;
+  gap: 10%;
+}
+.formContainer {
+  text-align: left;
+  border: 2px solid rgb(0, 141, 94);
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  width: 30%;
+  background-color: rgb(255, 255, 255);
+}
+.heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+.text {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(105, 105, 105);
+}
+input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #1b1b1b;
+  outline: none;
+  border-radius: 0px;
+}
+.cvv_exp {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 4%;
+}
+.exp {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15%;
+}
+.exp label,
+.cvv label {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(105, 105, 105);
+}
+.exp input {
+  width: 75%;
+}
+.cvv input {
+  width: 50%;
+}
+.check {
+  height: 15px;
+  width: 15px;
+}
+.term {
+  font-weight: 600;
+}
+.term span {
+  text-decoration: underline;
+  color: rgb(0, 141, 94);
+}
+.payBtn {
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.7rem 2rem;
+  background-color: rgb(0, 141, 94);
+  margin-left: 20%;
+  margin-bottom: 0.5rem;
+}
+.payBtn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.shipmentDetail {
+  height: 200px;
+  /* border: 1px solid red; */
+  width: 30%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  margin-left: 5%;
+}
+.shipmentDetail p:nth-child(1) {
+  font-size: 20px;
+  font-weight: 700;
+}
+.addDetails {
+  font-size: 18px;
+  font-weight: 600;
+}
+.OrderDate {
+  font-size: 16px;
+  font-weight: 700;
+}
+@media screen and (max-width: 481px) {
+  .parentContainer {
+    /* border: 1px solid red; */
+    margin-top: 2.5rem;
+    padding: 1rem;
+  }
+  .price {
+    /* border: 1px solid red; */
+    text-align: left;
+    font-size: 18px;
+    width: 60%;
+    margin-left: 4%;
+  }
+  .price span {
+    font-size: 15px;
+    font-weight: bolder;
+  }
+
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formContainer {
+    text-align: left;
+    border: 2px solid rgb(0, 141, 94);
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    width: 80%;
+    margin-left: 2%;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .heading {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .text {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(105, 105, 105);
+  }
+
+  .cvv_exp {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 4%;
+  }
+
+  .exp label,
+  .cvv label {
+    font-size: 14px;
+  }
+  .exp input {
+    width: 90%;
+  }
+  .cvv input {
+    width: 62%;
+  }
+  .check {
+    height: 12px;
+    width: 12px;
+  }
+  .term {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .term span {
+    text-decoration: underline;
+    color: rgb(0, 141, 94);
+  }
+  .payBtn {
+    margin-top: 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    background-color: rgb(0, 141, 94);
+    margin-bottom: 0.5rem;
+  }
+  .shipmentDetail {
+    height: 150px;
+    padding: 0.5rem;
+    /* border: 1px solid red; */
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 7.5%;
+    margin-bottom: 1rem;
+  }
+  .shipmentDetail p:nth-child(1) {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .addDetails {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .OrderDate {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

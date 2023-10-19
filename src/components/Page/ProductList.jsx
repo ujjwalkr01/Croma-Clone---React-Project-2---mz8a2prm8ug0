@@ -25,7 +25,7 @@ const ProductList = () => {
         "https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?limit=700",
         config
       );
-      console.log(resp.data);
+      // console.log(resp.data);
 
       setIsLoading(true);
       const searchData = resp.data.data.filter((el) => {
