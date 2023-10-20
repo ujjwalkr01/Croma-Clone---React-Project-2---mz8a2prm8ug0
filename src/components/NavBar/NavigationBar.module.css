@@ -32,6 +32,7 @@
 /*search bar */
 .searchContainer {
   display: flex;
+  /* align-items: center; */
   flex-grow: 0.6;
 }
 .noSubmit {
@@ -86,7 +87,7 @@
     padding: 0.7rem 0rem;
     display: flex;
     align-items: center;
-    width: 99%;
+    width: 100%;
     gap: 3%;
   }
   .menuBtn {
@@ -118,7 +119,7 @@
   .shoppingCart p {
     position: absolute;
     top: 1rem;
-    right: 6.5%;
+    right: 1.5%;
     font-size: 0.6rem;
     color: black;
     background-color: rgb(7, 233, 158);

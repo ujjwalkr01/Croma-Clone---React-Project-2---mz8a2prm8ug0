@@ -23,7 +23,7 @@ const GetMyOrders = () => {
       );
       // console.log(res.data.data);
       if (res.data.status == "success") {
-        console.log(res.data);
+        // console.log(res.data);
         setCartItems(res.data.data);
         setTimeout(() => {
           setIsLoading(false);
@@ -47,7 +47,8 @@ const GetMyOrders = () => {
   });
 
   const handleOnClickImg = (e) => {
-    let prodId = e.target.getAttribute("alt");
+    // let prodId = e.target.getAttribute("alt");
+    let prodId = e.target.parentNode.getAttribute("id");
     navigate(`/productDetails/:brand/:subCategory/${prodId}`);
   };
 
@@ -59,7 +60,7 @@ const GetMyOrders = () => {
           <div className={styles.cartProd}>
             {cartItems.map((ele, indx) => {
               return (
-                <div key={indx} className={styles.containerCard}>
+                <div key={indx} className={styles.orderContainerCard}>
                   <section className={styles.imgSect}>
                     <img
                       src={ele.order.items[0].product.displayImage}
@@ -91,9 +92,14 @@ const GetMyOrders = () => {
                       </p>
                     </div>
                     <span className={styles.deliveryStat}>
-                      ordered on {formattedDate}
+                      ordered on {ele.createdAt.substring(0, 10)}
                     </span>
-                    <span className={styles.viewProd}>View</span>
+                    <span
+                      className={styles.viewProd}
+                      onClick={handleOnClickImg}
+                    >
+                      View
+                    </span>
                   </section>
                 </div>
               );

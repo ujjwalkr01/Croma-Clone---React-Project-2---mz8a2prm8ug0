@@ -40,14 +40,14 @@ h1 {
 .passInp,
 .userNameInp,
 .signUpPassInp {
-  width: 98%;
+  width: 94%;
   border-radius: 4px;
   background-color: transparent;
   border: 1px solid #fff;
   margin-top: 1rem;
   color: rgb(201, 201, 201);
   font-size: 16px;
-  padding: 1rem 0rem;
+  padding: 1rem 0.4rem;
 }
 
 .terms {
@@ -96,13 +96,13 @@ h1 {
   .passInp,
   .userNameInp,
   .signUpPassInp {
-    width: 100%;
     border-radius: 4px;
     background-color: transparent;
     border: 1px solid #fff;
     margin-top: 1rem;
     color: rgb(201, 201, 201);
     font-size: 13px;
+    /* padding: 1rem 0.4rem; */
   }
   .authBtn {
     background-color: rgb(8, 199, 135);

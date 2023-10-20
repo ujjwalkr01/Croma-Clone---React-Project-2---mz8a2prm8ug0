@@ -3,6 +3,7 @@ import { CgProfile } from "react-icons/cg";
 import { BsBoxSeam } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const MyAccountPage = () => {
   const navigate = useNavigate();
@@ -15,12 +16,19 @@ const MyAccountPage = () => {
     navigate("/my-account/orders");
   };
 
+  useEffect(() => {
+    document.body.style.backgroundColor = "rgb(32, 32, 32)";
+  }, []);
+
   return (
     <div className={styles.parentContainer}>
       <p className={styles.heading}>My Account</p>
 
       <div className={styles.cardContainer}>
-        <div className={styles.profileSect}>
+        <div
+          className={styles.profileSect}
+          onClick={() => navigate("/my-account/-profile")}
+        >
           <div className={styles.logo}>
             <CgProfile />
           </div>
@@ -30,11 +38,11 @@ const MyAccountPage = () => {
           </div>
         </div>
 
-        <div className={styles.profileSect}>
+        <div className={styles.profileSect} onClick={handleMyOrderpage}>
           <div className={styles.logo}>
             <BsBoxSeam />
           </div>
-          <div className={styles.text} onClick={handleMyOrderpage}>
+          <div className={styles.text}>
             <p>My Orders</p>
             <p>View,track,cancel orders and buy again</p>
           </div>

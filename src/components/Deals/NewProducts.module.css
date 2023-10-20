@@ -105,7 +105,7 @@ section {
   }
   .parentContainer {
     /* margin-left: 6%; */
-    /* margin: auto; */
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 5%;
@@ -118,7 +118,7 @@ section {
     font-size: 16px;
   }
   .productCard {
-    width: 165px;
+    width: 160px;
     height: 16.5rem;
     padding: 0.2rem;
   }

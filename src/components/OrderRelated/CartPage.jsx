@@ -55,6 +55,9 @@ const CartPage = () => {
     }
   };
 
+  useState(() => {
+    document.body.style.backgroundColor = "rgb(240, 240, 240)";
+  }, []);
   const deleteProductFromCart = async (prodId, data) => {
     const config = getAuthHeaderConfigWithContent();
     try {
@@ -68,6 +71,10 @@ const CartPage = () => {
       if (res.data.status == "success") {
         setCartItems(res.data.data.items);
         setOrderId(prodId);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 200);
+      } else {
         setTimeout(() => {
           setIsLoading(false);
         }, 200);

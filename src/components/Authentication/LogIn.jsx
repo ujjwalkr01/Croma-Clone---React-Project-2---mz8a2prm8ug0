@@ -56,6 +56,11 @@ const LogIn = () => {
         sessionStorage.setItem("authToken", resp.data.token);
         sessionStorage.setItem("name", resp.data.data.name);
         sessionStorage.setItem("email", resp.data.data.email);
+        sessionStorage.setItem(
+          "mobile",
+          Math.floor(Math.random() * (1000000000 - 9999999999)) + 9999999999
+        );
+
 
         setIsLoading(false);
         setErrMsg("Logged In Successfully!");

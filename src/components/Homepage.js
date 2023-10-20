@@ -27,6 +27,10 @@ const HomePage = () => {
     }
   }, [showModal]);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = "rgb(32, 32, 32)";
+  }, []);
+
   return (
     <>
       <SliderBar />

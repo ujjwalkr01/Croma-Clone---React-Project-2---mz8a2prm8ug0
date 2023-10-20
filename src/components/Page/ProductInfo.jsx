@@ -73,6 +73,10 @@ const ProductInfo = () => {
       .setAttribute("src", `${e.target.src}`);
   };
 
+  useEffect(() => {
+    document.body.style.backgroundColor = "rgb(32, 32, 32)";
+  }, []);
+
   return (
     <>
       {!isLoading ? (

@@ -1,0 +1,78 @@
+.parentContainer {
+  margin-top: 8.5rem;
+  color: white;
+}
+.emailInp1,
+.passInp1,
+.userNameInp1 {
+  width: 60%;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #fff;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  padding: 1rem 0.4rem;
+}
+.heading1 {
+  text-align: left;
+  font-size: 28px;
+  font-weight: 500;
+  margin-left: 8%;
+  margin-bottom: 3rem;
+}
+.text1 {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(158, 158, 158);
+}
+.formContainer {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.firstSec,
+.secSec {
+  /* border: 1px solid blue; */
+  width: 60%;
+}
+
+@media screen and (max-width: 481px) {
+  .parentContainer {
+    margin-top: 6.5rem;
+    color: white;
+  }
+  .formContainer {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  .firstSec,
+  .secSec {
+    /* border: 1px solid blue; */
+    width: 100%;
+  }
+  .emailInp1,
+  .passInp1,
+  .userNameInp1 {
+    width: 90%;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid #fff;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding: 1rem 0.4rem;
+  }
+}

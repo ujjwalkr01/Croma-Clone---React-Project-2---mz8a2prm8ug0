@@ -13,6 +13,7 @@ import MyWishlistPage from "./Page/MyWishlistPage";
 import CheckoutPage from "./Page/CheckoutPage";
 import GetMyOrders from "./Page/GetMyOrders";
 import DefaultPage from "./Page/DefaultPage";
+import MyProfilePage from "./Page/MyProfilePage";
 
 export const ModalCtx = createContext();
 export const SwitchModalCtx = createContext();
@@ -95,6 +96,11 @@ function App() {
               <Route
                 path="/my-account/orders"
                 element={isLoggedIn ? <GetMyOrders /> : <Navigate to={"/"} />}
+              />
+
+              <Route
+                path="/my-account/-profile"
+                element={isLoggedIn ? <MyProfilePage /> : <Navigate to={"/"} />}
               />
               <Route path="*" element={<DefaultPage />} />
             </Routes>

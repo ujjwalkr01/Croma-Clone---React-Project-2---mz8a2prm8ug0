@@ -62,6 +62,10 @@ const ProductList = () => {
     }
   }, [showModal]);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = "rgb(32, 32, 32)";
+  }, []);
+
   const handleCardClick = (product) => {
     navigate(
       `/productDetails/${product.brand}/${product.subCategory}/${product._id}`

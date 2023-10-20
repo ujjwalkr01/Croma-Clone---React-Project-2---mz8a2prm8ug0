@@ -10,7 +10,7 @@ const CheckoutPage = () => {
     cardNumber: "",
     cvv: "",
   });
-  const {setOrderId}=useContext(OrderCountCtx);
+  const { setOrderId } = useContext(OrderCountCtx);
 
   const location = useLocation();
   const { data } = location.state || {};
@@ -65,6 +65,10 @@ const CheckoutPage = () => {
     const { name, value } = event.target;
     setPaymntInfo({ ...paymntInfo, [name]: value });
   };
+
+  useState(() => {
+    document.body.style.backgroundColor = "rgb(240, 240, 240)";
+  }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

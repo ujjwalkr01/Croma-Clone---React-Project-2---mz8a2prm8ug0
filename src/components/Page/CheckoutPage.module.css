@@ -1,5 +1,4 @@
 .parentContainer {
-  background-color: rgb(240, 240, 240);
   color: black;
   margin-top: 4rem;
   padding: 2rem;
@@ -7,12 +6,13 @@
 .price {
   /* border: 1px solid red; */
   text-align: left;
-  font-size: 20px;
+  font-size: 30px;
   width: 60%;
   margin-left: 4%;
+  margin-top: 2%;
 }
 .price span {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
 }
 .cardContainer {
@@ -25,7 +25,10 @@
   border-radius: 6px;
   padding: 0.5rem 1.5rem;
   width: 30%;
+  margin-bottom: 8%;
   background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 .heading {
   font-size: 18px;
@@ -35,7 +38,6 @@
   font-size: 18px;
   font-weight: 700;
   color: rgb(105, 105, 105);
-  
 }
 input {
   margin-top: 1rem;
@@ -100,9 +102,12 @@ input {
   height: 200px;
   /* border: 1px solid red; */
   width: 30%;
+  margin-top: 2%;
   background-color: rgb(255, 255, 255);
   border-radius: 6px;
   margin-left: 5%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .shipmentDetail p:nth-child(1) {
   font-size: 20px;
@@ -123,7 +128,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-
 @media screen and (max-width: 481px) {
   .parentContainer {
     /* border: 1px solid red; */
@@ -133,12 +137,13 @@ input[type="number"]::-webkit-outer-spin-button {
   .price {
     /* border: 1px solid red; */
     text-align: left;
-    font-size: 18px;
+    font-size: 20px;
     width: 60%;
     margin-left: 4%;
+    margin-top: 8%;
   }
   .price span {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bolder;
   }
 
@@ -149,12 +154,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .formContainer {
     text-align: left;
-    border: 2px solid rgb(0, 141, 94);
-    border-radius: 6px;
     padding: 0.5rem 1.5rem;
     width: 80%;
     margin-left: 2%;
-    background-color: rgb(255, 255, 255);
+    margin-top: 5%;
   }
 
   .heading {
@@ -213,6 +216,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 80%;
     background-color: rgb(255, 255, 255);
     margin-left: 7.5%;
+    margin-top: 7.5%;
     margin-bottom: 1rem;
   }
   .shipmentDetail p:nth-child(1) {

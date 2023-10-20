@@ -160,7 +160,7 @@ const MyWishlistPage = () => {
                         className={styles.deleteProdBtn}
                         onClick={handleDeleteWishlistProd}
                       >
-                        Delete
+                        Remove
                       </button>
                       <button
                         className={styles.addCartProdBtn}

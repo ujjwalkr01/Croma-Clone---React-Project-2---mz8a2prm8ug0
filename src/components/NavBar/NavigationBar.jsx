@@ -14,10 +14,10 @@ import {
 import axios from "axios";
 
 const NavigationBar = () => {
-  const [displayMenu, setDisplayMenu] = useState(false);
+  // const [displayMenu, setDisplayMenu] = useState(false);
   const [noOfItem, setnoOfItem] = useState(0);
-  const { showModal, setShowModal } = useContext(ModalCtx);
-  const { orderId, setOrderId, isOpen, setIsOpen } = useContext(OrderCountCtx);
+  const { setShowModal } = useContext(ModalCtx);
+  const { orderId } = useContext(OrderCountCtx);
 
   const navigate = useNavigate();
   const token = getToken();
@@ -90,8 +90,8 @@ const NavigationBar = () => {
 
       {!token && <AuthModal />}
 
-      <div className={styles.shoppingCart}>
-        <FaShoppingCart className={styles.cart} onClick={handleCartClick} />
+      <div className={styles.shoppingCart} onClick={handleCartClick}>
+        <FaShoppingCart className={styles.cart} />
         <p>{noOfItem}</p>
       </div>
     </nav>
