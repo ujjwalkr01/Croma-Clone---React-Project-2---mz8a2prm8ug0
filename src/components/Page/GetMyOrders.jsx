@@ -46,7 +46,7 @@ const GetMyOrders = () => {
     day: "numeric",
   });
 
-  const handleOnClickImg = (e) => {
+  const handleOnClickView = (e) => {
     // let prodId = e.target.getAttribute("alt");
     let prodId = e.target.parentNode.getAttribute("id");
     navigate(`/productDetails/:brand/:subCategory/${prodId}`);
@@ -65,7 +65,6 @@ const GetMyOrders = () => {
                     <img
                       src={ele.order.items[0].product.displayImage}
                       alt={ele.order.items[0].product._id}
-                      onClick={handleOnClickImg}
                     />
                   </section>
                   <section
@@ -96,7 +95,7 @@ const GetMyOrders = () => {
                     </span>
                     <span
                       className={styles.viewProd}
-                      onClick={handleOnClickImg}
+                      onClick={handleOnClickView}
                     >
                       View
                     </span>
