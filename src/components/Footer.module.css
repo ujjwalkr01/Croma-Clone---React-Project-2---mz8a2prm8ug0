@@ -68,9 +68,10 @@
 @media screen and (max-width: 481px) {
   .parentContainer {
     padding: 0rem;
+    width: 95%;
   }
   .sect1 {
-    width: 350px;
+    width: 82%;
     /* border: 1px solid red; */
   }
 }

@@ -86,6 +86,7 @@
     padding: 0.7rem 0rem;
     display: flex;
     align-items: center;
+    width: 99%;
     gap: 3%;
   }
   .menuBtn {
@@ -116,8 +117,8 @@
   }
   .shoppingCart p {
     position: absolute;
-    top: 0.5rem;
-    right: 3%;
+    top: 1rem;
+    right: 6.5%;
     font-size: 0.6rem;
     color: black;
     background-color: rgb(7, 233, 158);

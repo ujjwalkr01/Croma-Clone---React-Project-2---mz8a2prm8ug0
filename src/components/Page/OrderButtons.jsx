@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { getAuthHeaderConfig, getToken } from "../../utils/config";
-import { ModalCtx } from "../App";
+import { ModalCtx, OrderCountCtx } from "../App";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const OrderButtons = ({ prodId }) => {
   const { setShowModal } = useContext(ModalCtx);
+  const { setOrderId } = useContext(OrderCountCtx);
+
   const navigate = useNavigate();
 
   const addProductToCart = async (data, btnName) => {
@@ -17,12 +19,17 @@ const OrderButtons = ({ prodId }) => {
         config
       );
       // console.log(res.data);
+
       if (res.data.status == "success" && btnName == "buyNowBtn") {
         sessionStorage.setItem("noOfItems", res.data.data.items.length);
-        navigate("/cartSec", { state: { data: res.data.data.items } });
+        // setOrderId(prodId);
+        navigate("/cartSec", {
+          state: { data: res.data.data.items, Id: prodId },
+        });
       } else if (res.data.status == "success" && btnName == "cartBtn") {
         sessionStorage.setItem("noOfItems", res.data.data.items.length);
-        navigate({ state: { data: res.data.data.items } });
+        setOrderId(prodId);
+        navigate({ state: { data: res.data.data.items, Id: prodId } });
         alert(res.data.message);
       }
     } catch (err) {
@@ -34,6 +41,7 @@ const OrderButtons = ({ prodId }) => {
     const token = getToken();
     if (token) {
       let data = { quantity: 2 };
+
       addProductToCart(data, e.target.id);
     } else {
       setShowModal(true);

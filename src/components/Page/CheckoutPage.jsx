@@ -1,14 +1,16 @@
 import { useLocation } from "react-router-dom";
 import styles from "./CheckoutPage.module.css";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { getAuthHeaderConfig } from "../../utils/config";
+import { OrderCountCtx } from "../App";
 
 const CheckoutPage = () => {
   const [paymntInfo, setPaymntInfo] = useState({
     cardNumber: "",
     cvv: "",
   });
+  const {setOrderId}=useContext(OrderCountCtx);
 
   const location = useLocation();
   const { data } = location.state || {};
@@ -66,10 +68,18 @@ const CheckoutPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(typeof paymntInfo.cardNumber);
-    if (paymntInfo.cardNumber.length > 16 || paymntInfo.cvv.length > 3) {
+
+    if (
+      paymntInfo.cardNumber.length > 16 ||
+      paymntInfo.cvv.length > 3 ||
+      paymntInfo.cardNumber.length < 16 ||
+      paymntInfo.cvv.length < 3
+    ) {
       alert("Invalid credentials!");
-    } else {
+    } else if (
+      paymntInfo.cardNumber.length === 16 &&
+      paymntInfo.cvv.length === 3
+    ) {
       proceedToCheckOut(addData);
     }
   };

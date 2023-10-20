@@ -148,6 +148,7 @@
     width: 98%;
     font-size: 20px;
     font-weight: 650;
+    border: none;
   }
   .searchInfo p:nth-last-child(1) {
     font-size: 16px;

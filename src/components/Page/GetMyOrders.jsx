@@ -21,9 +21,10 @@ const GetMyOrders = () => {
         `https://academics.newtonschool.co/api/v1/ecommerce/order/`,
         config
       );
-      console.log(res.data.data[0].order.items);
+      // console.log(res.data.data);
       if (res.data.status == "success") {
-        setCartItems(res.data.data[0].order.items);
+        console.log(res.data);
+        setCartItems(res.data.data);
         setTimeout(() => {
           setIsLoading(false);
         }, 500);
@@ -61,15 +62,20 @@ const GetMyOrders = () => {
                 <div key={indx} className={styles.containerCard}>
                   <section className={styles.imgSect}>
                     <img
-                      src={ele.product.displayImage}
-                      alt={ele.product._id}
+                      src={ele.order.items[0].product.displayImage}
+                      alt={ele.order.items[0].product._id}
                       onClick={handleOnClickImg}
                     />
                   </section>
-                  <section id={ele.product._id} className={styles.descrSect}>
-                    <p className={styles.prodName}>{ele.product.name}</p>
+                  <section
+                    id={ele.order.items[0].product._id}
+                    className={styles.descrSect}
+                  >
+                    <p className={styles.prodName}>
+                      {ele.order.items[0].product.name}
+                    </p>
                     <p className={styles.prodId}>
-                      Product Id:&nbsp;{ele.product._id}
+                      Product Id:&nbsp;{ele.order.items[0].product._id}
                     </p>
                     <p className={styles.prodRating}>
                       {(Math.random() * (5.0 - 4.0) + 4.0).toFixed(1)}
@@ -80,7 +86,7 @@ const GetMyOrders = () => {
                         {new Intl.NumberFormat("en-IN", {
                           style: "currency",
                           currency: "INR",
-                        }).format(ele.product.price)}
+                        }).format(ele.order.items[0].product.price)}
                         &nbsp;
                       </p>
                     </div>

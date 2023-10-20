@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./WishlistPage.module.css";
 import { RotatingLines } from "react-loader-spinner";
 import {
@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import { BsStarFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { OrderCountCtx } from "../App";
 
 const MyWishlistPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -69,7 +70,7 @@ const MyWishlistPage = () => {
     let prodId = e.target.getAttribute("alt");
     navigate(`/productDetails/:brand/:subCategory/${prodId}`);
   };
-
+  const { setOrderId } = useContext(OrderCountCtx);
   // moving wishlist item to cart...
   const addProductToCart = async (prodId, data) => {
     const config = getAuthHeaderConfig();
@@ -82,6 +83,7 @@ const MyWishlistPage = () => {
       // console.log(res.data);
       sessionStorage.setItem("noOfItems", res.data.data.items.length);
       navigate({ state: { data: res.data.data.items } });
+      setOrderId(prodId);
       alert(res.data.message);
     } catch (err) {
       console.error(err.message);

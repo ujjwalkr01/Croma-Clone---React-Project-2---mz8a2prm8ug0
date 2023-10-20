@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { BsList, BsPersonFill } from "react-icons/bs";
 import SearchInput from "./SearchInput";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ModalCtx } from "../App";
+import { ModalCtx, OrderCountCtx } from "../App";
 import AuthModal from "../Authentication/AuthModal";
 import {
   getAuthHeaderConfig,
@@ -17,14 +17,14 @@ const NavigationBar = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
   const [noOfItem, setnoOfItem] = useState(0);
   const { showModal, setShowModal } = useContext(ModalCtx);
+  const { orderId, setOrderId, isOpen, setIsOpen } = useContext(OrderCountCtx);
 
   const navigate = useNavigate();
   const token = getToken();
   const cntItem = getCntCartItem();
 
   const location = useLocation();
-  const { data } = location.state || {};
-  // console.log(data);
+  const { data, Id } = location.state || {};
 
   const fetchCartCount = async () => {
     const config = getAuthHeaderConfig();
@@ -35,8 +35,10 @@ const NavigationBar = () => {
       );
 
       if (res.data.status == "success") {
-        console.log(res.data.data.items.length);
         setnoOfItem(res.data.data.items.length);
+        if (res.data.data.items.length == 0) {
+          setnoOfItem(0);
+        }
       }
     } catch (err) {
       console.error(err.response.data.message);
@@ -57,7 +59,7 @@ const NavigationBar = () => {
       fetchCartCount();
     }
     setnoOfItem(cntItem);
-  }, [token, data]);
+  }, [token, data, orderId]);
 
   const handleCartClick = () => {
     if (!token) {
@@ -78,10 +80,7 @@ const NavigationBar = () => {
         }}
       />
       <button className={styles.menuBtn}>
-        <BsList
-          className={styles.menuBar}
-          onClick={() => setDisplayMenu(!displayMenu)}
-        />
+        <BsList className={styles.menuBar} />
         <p>Menu</p>
       </button>
 

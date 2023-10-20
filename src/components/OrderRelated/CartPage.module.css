@@ -223,7 +223,7 @@ h2 {
     flex-direction: column;
   }
   .cartProd {
-    width: 98%;
+    width: 97%;
     margin-left: 1%;
   }
   .couponSect {
@@ -231,12 +231,12 @@ h2 {
   }
   .containerCard {
     width: 99%;
-    height: 240px;
+    height: 250px;
   }
 
   .imgSect {
     margin-left: 1%;
-    margin-top: 0;
+    margin-top: 2.5%;
     width: 22%;
   }
   .imgSect img {
@@ -258,7 +258,8 @@ h2 {
     font-weight: 600;
   }
   .prodPrice {
-    font-size: 15px;
+    font-size: 14px;
+    margin: 0;
     font-weight: 600;
   }
   .prodPrice span {
@@ -270,6 +271,7 @@ h2 {
   }
   .deliveryStat {
     font-size: 10px;
+    margin: 0;
   }
 
   .deleteProdBtn {
@@ -307,6 +309,9 @@ h2 {
   .orderSummary {
     border-radius: 6px;
     padding: 0.4rem 1rem;
-    width: 350px;
+    width: 400px;
+  }
+  .totalPrice {
+    font-weight: 700;
   }
 }

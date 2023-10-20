@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./CartPage.module.css";
 import { BsStarFill } from "react-icons/bs";
 import OrderSummary from "./OrderSummary";
@@ -9,6 +9,7 @@ import {
   getAuthHeaderConfig,
   getAuthHeaderConfigWithContent,
 } from "../../utils/config";
+import { OrderCountCtx } from "../App";
 
 function getRandomDate(startDate, endDate) {
   const startTimestamp = startDate.getTime();
@@ -25,7 +26,8 @@ const CartPage = () => {
 
   const location = useLocation();
   const { data } = location.state || {};
-  // console.log(data);
+
+  const { setOrderId } = useContext(OrderCountCtx);
 
   const generateRandomDate = () => {
     const startDate = new Date("2023-10-18");
@@ -65,6 +67,7 @@ const CartPage = () => {
 
       if (res.data.status == "success") {
         setCartItems(res.data.data.items);
+        setOrderId(prodId);
         setTimeout(() => {
           setIsLoading(false);
         }, 200);
@@ -92,6 +95,7 @@ const CartPage = () => {
     // console.log(e.target.parentNode.getAttribute("id"));
     let prodId = e.target.parentNode.getAttribute("id");
     let data = { quantity: 2 };
+
     deleteProductFromCart(prodId, data);
   };
 

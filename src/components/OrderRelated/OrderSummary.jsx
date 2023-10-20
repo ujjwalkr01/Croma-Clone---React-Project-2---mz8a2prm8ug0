@@ -14,12 +14,11 @@ const OrderSummary = ({ totPrice, totItem, value }) => {
         data,
         config
       );
-      console.log(res.data.data.shipmentDetails.address);
+      // console.log(res.data.data.shipmentDetails.address);
       if (res.data.status == "success" && totItem > 0) {
         navigate("/checkout/payment", {
           state: {
             data: totPrice,
-            address: res.data.data.shipmentDetails.address,
           },
         });
       }
@@ -29,6 +28,7 @@ const OrderSummary = ({ totPrice, totItem, value }) => {
   };
 
   const handleCheckoutPage = () => {
+   
     let data = {
       addressType: "HOME",
       address: {
@@ -65,7 +65,7 @@ const OrderSummary = ({ totPrice, totItem, value }) => {
       </p>
       <p>
         Total{" "}
-        <span>
+        <span className={styles.totalPrice}>
           {new Intl.NumberFormat("en-IN", {
             style: "currency",
             currency: "INR",

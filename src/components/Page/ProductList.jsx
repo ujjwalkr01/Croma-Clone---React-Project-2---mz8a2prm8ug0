@@ -30,8 +30,8 @@ const ProductList = () => {
       setIsLoading(true);
       const searchData = resp.data.data.filter((el) => {
         if (
-          el.name.toLowerCase().includes(inpValue) ||
-          el.subCategory.toLowerCase().includes(inpValue)
+          el.name.toLowerCase().includes(inpValue.toLowerCase()) ||
+          el.subCategory.toLowerCase().includes(inpValue.toLowerCase())
         ) {
           return el;
         }

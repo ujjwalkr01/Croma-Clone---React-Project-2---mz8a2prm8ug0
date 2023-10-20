@@ -47,6 +47,7 @@ h1 {
   margin-top: 1rem;
   color: rgb(201, 201, 201);
   font-size: 16px;
+  padding: 1rem 0rem;
 }
 
 .terms {
@@ -68,8 +69,8 @@ h1 {
   padding: 0.8rem 7.5rem;
   cursor: pointer;
 }
-.authBtn:hover{
-  opacity: .8;
+.authBtn:hover {
+  opacity: 0.8;
 }
 .isErr {
   color: orangered;
@@ -81,7 +82,7 @@ h1 {
   font-size: 14px;
   font-weight: 500;
 }
-.loadingState{
+.loadingState {
   margin-left: 40%;
   width: 12%;
   /* border: 1px solid red; */

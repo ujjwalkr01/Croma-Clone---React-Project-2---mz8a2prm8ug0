@@ -104,17 +104,18 @@ section {
     margin-left: 4%;
   }
   .parentContainer {
-    margin-left: 6%;
+    /* margin-left: 6%; */
+    /* margin: auto; */
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5%;
+    gap: 5%;
   }
   .prodImage {
     height: 6rem;
     width: 6rem;
   }
   img[alt] {
-    font-size: 15px;
+    font-size: 16px;
   }
   .productCard {
     width: 165px;
@@ -122,12 +123,12 @@ section {
     padding: 0.2rem;
   }
   .border {
-    height: 20px;
+    display: none;
   }
   .newTag {
     position: relative;
     bottom: 6.6%;
-    right: 1.8%;
+    right: 2%;
     font-weight: 500;
     font-size: 14px;
     width: 54px;
